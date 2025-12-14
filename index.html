@@ -149,12 +149,58 @@ section {
 footer { text-align: center; padding: 30px; background: #020617; color: #94a3b8; }
 
 /* ----------------- Responsive ----------------- */
-@media screen and (max-width: 768px) {
-    body { padding-top: 120px; }
-    html { scroll-padding-top: 120px; }
+/* ---------- Mobile Navigation Fix ---------- */
 
-    nav { flex-direction: column; padding: 20px; }
-    nav a { margin: 10px 0; }
+#menu-toggle {
+    display: none;
+    background: none;
+    border: none;
+    color: #e5e7eb;
+    font-size: 1.8rem;
+    cursor: pointer;
+}
+
+#nav-links {
+    display: flex;
+}
+
+@media screen and (max-width: 768px) {
+    body {
+        padding-top: 70px;
+    }
+
+    nav {
+        flex-direction: row;
+        justify-content: space-between;
+        align-items: center;
+    }
+
+    #menu-toggle {
+        display: block;
+    }
+
+    #nav-links {
+        position: absolute;
+        top: 100%;
+        left: 0;
+        width: 100%;
+        background: #020617;
+        flex-direction: column;
+        display: none;
+    }
+
+    #nav-links a {
+        padding: 15px 0;
+        text-align: center;
+    }
+
+    #nav-links.show {
+        display: flex;
+    }
+}
+ @media screen and (max-width: 768px) {
+   body { padding-top: 70px; }
+html { scroll-padding-top: 70px; }
     .hero h1 { font-size: 2.2rem; }
     .hero p { font-size: 1rem; }
     section { padding: 50px 20px; }
@@ -165,16 +211,20 @@ footer { text-align: center; padding: 30px; background: #020617; color: #94a3b8;
 
 <header>
 <nav>
-    <a href="#about">About</a>
-    <a href="#skills">Skills</a>
-    <a href="#journey">Journey</a>
-    <a href="#education">Education</a>
-    <a href="#results">Results</a>
-    <a href="#portfolio">Portfolio</a>
-    <a href="#testimonials">Testimonials</a>
-    <a href="#blog">Blog</a>
-    <a href="#contact">Contact</a>
+    <button id="menu-toggle">☰</button>
+    <div id="nav-links">
+        <a href="#about">About</a>
+        <a href="#skills">Skills</a>
+        <a href="#journey">Journey</a>
+        <a href="#education">Education</a>
+        <a href="#results">Results</a>
+        <a href="#portfolio">Portfolio</a>
+        <a href="#testimonials">Testimonials</a>
+        <a href="#blog">Blog</a>
+        <a href="#contact">Contact</a>
+    </div>
 </nav>
+
 </header>
 
 <main>
@@ -346,6 +396,13 @@ document.getElementById("contact-form").addEventListener("submit", function(e) {
         feedback.innerText = "❌ Message failed. Try again.";
         console.error("EmailJS error:", error);
     }).finally(() => { btn.disabled = false; });
+});
+// Mobile menu toggle
+const menuToggle = document.getElementById('menu-toggle');
+const navLinks = document.getElementById('nav-links');
+
+menuToggle.addEventListener('click', () => {
+    navLinks.classList.toggle('show');
 });
 
 // Scroll animations
