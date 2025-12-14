@@ -45,7 +45,7 @@ nav a {
     transition: color 0.3s;
 }
 
-nav a:hover { color: #38bdf8; }
+nav a:hover, nav a:focus { color: #38bdf8; outline: none; }
 
 /* ----------------- Hero ----------------- */
 .hero {
@@ -71,7 +71,7 @@ nav a:hover { color: #38bdf8; }
     border-radius: 30px;
     transition: transform 0.2s, background 0.2s, box-shadow 0.2s;
 }
-.btn:hover { background: #0ea5e9; transform: translateY(-5px) scale(1.05); box-shadow: 0 10px 20px rgba(0,0,0,0.4); }
+.btn:hover, .btn:focus { background: #0ea5e9; transform: translateY(-5px) scale(1.05); box-shadow: 0 10px 20px rgba(0,0,0,0.4); outline: none; }
 
 /* ----------------- Sections ----------------- */
 section {
@@ -148,9 +148,23 @@ section {
 /* ----------------- Footer ----------------- */
 footer { text-align: center; padding: 30px; background: #020617; color: #94a3b8; }
 
-/* ----------------- Responsive ----------------- */
-/* ---------- Mobile Navigation Fix ---------- */
+/* ----------------- Back-to-top ----------------- */
+#back-to-top {
+    display: none;
+    position: fixed;
+    right: 20px;
+    bottom: 30px;
+    background: #38bdf8;
+    color: #020617;
+    padding: 10px 12px;
+    border-radius: 8px;
+    cursor: pointer;
+    z-index: 200;
+    font-weight: 700;
+    box-shadow: 0 8px 20px rgba(0,0,0,0.4);
+}
 
+/* ----------------- Responsive (merged) ----------------- */
 #menu-toggle {
     display: none;
     background: none;
@@ -165,9 +179,8 @@ footer { text-align: center; padding: 30px; background: #020617; color: #94a3b8;
 }
 
 @media screen and (max-width: 768px) {
-    body {
-        padding-top: 70px;
-    }
+    body { padding-top: 70px; }
+    html { scroll-padding-top: 70px; }
 
     nav {
         flex-direction: row;
@@ -197,13 +210,16 @@ footer { text-align: center; padding: 30px; background: #020617; color: #94a3b8;
     #nav-links.show {
         display: flex;
     }
-}
- @media screen and (max-width: 768px) {
-   body { padding-top: 70px; }
-html { scroll-padding-top: 70px; }
+
     .hero h1 { font-size: 2.2rem; }
     .hero p { font-size: 1rem; }
     section { padding: 50px 20px; }
+}
+
+/* Focus styles for accessibility */
+a:focus, button:focus, input:focus, textarea:focus {
+    outline: 3px solid rgba(56,189,248,0.25);
+    outline-offset: 2px;
 }
 </style>
 </head>
@@ -211,8 +227,8 @@ html { scroll-padding-top: 70px; }
 
 <header>
 <nav>
-    <button id="menu-toggle">☰</button>
-    <div id="nav-links">
+    <button id="menu-toggle" type="button" aria-label="Toggle navigation" aria-expanded="false">☰</button>
+    <div id="nav-links" role="navigation" aria-label="Primary">
         <a href="#about">About</a>
         <a href="#skills">Skills</a>
         <a href="#journey">Journey</a>
@@ -224,7 +240,6 @@ html { scroll-padding-top: 70px; }
         <a href="#contact">Contact</a>
     </div>
 </nav>
-
 </header>
 
 <main>
@@ -240,7 +255,7 @@ html { scroll-padding-top: 70px; }
 <section id="about" class="fade-left">
 <h2 class="section-title">About Me</h2>
 <p style="text-align:center; max-width:800px; margin:auto; color:#cbd5f5;">
-Highly motivated cybersecurity enthusiast with strong foundational skills in offensive and defensive security practices. Skilled in threat analysis, Linux administration, vulnerability assessment, and web application testing. Passionate about building a secure digital environment.
+Highly motivated cybersecurity enthusiast with strong foundational skills in offensive and defensive security practices. Skilled in threat analysis, Linux administration, vulnerability assessment, and continuing to expand practical experience through labs and CTFs.
 </p>
 </section>
 
@@ -302,9 +317,23 @@ Highly motivated cybersecurity enthusiast with strong foundational skills in off
 <section id="portfolio" class="fade-left">
 <h2 class="section-title">Portfolio & Projects</h2>
 <div class="cards">
-    <div class="card"><h3>Cybersecurity Lab Analysis</h3><p>Performed vulnerability assessments using Nmap and Metasploit, improving lab security by 40%.</p><a href="#" target="_blank" class="btn">View Project</a></div>
-    <div class="card"><h3>Personal Website</h3><p>Developed this portfolio website using HTML, CSS, and JS to showcase my journey and skills.</p><a href="#" target="_blank" class="btn">Live Demo</a></div>
-    <div class="card"><h3>KCSEHub Tips Blog</h3><p>Shared practical study and cybersecurity tips for students and club members in Nairobi.</p><a href="#" target="_blank" class="btn">Read More</a></div>
+    <div class="card">
+        <h3>Cybersecurity Lab Analysis</h3>
+        <p>Performed vulnerability assessments using Nmap and Metasploit, improving lab security by 40%.</p>
+        <a href="#" target="_blank" rel="noopener" class="btn">View Details</a>
+    </div>
+
+    <div class="card">
+        <h3>Personal Website</h3>
+        <p>Developed this portfolio website using HTML, CSS, and JS to showcase my journey and skills.</p>
+        <a href="#" target="_blank" rel="noopener" class="btn">Live Demo</a>
+    </div>
+
+    <div class="card">
+        <h3>KCSEHub Tips Blog</h3>
+        <p>Shared practical study and cybersecurity tips for students and club members in Nairobi.</p>
+        <a href="#" target="_blank" rel="noopener" class="btn">Read More</a>
+    </div>
 </div>
 </section>
 
@@ -332,26 +361,26 @@ Highly motivated cybersecurity enthusiast with strong foundational skills in off
     <h2 class="section-title">Contact Me</h2>
     <div class="cards">
         <div class="card" style="max-width:600px; margin:auto; padding:40px;">
-            <form id="contact-form">
+            <form id="contact-form" novalidate>
                 <label for="name">Name</label>
-                <input type="text" id="name" placeholder="Your Name" required>
+                <input type="text" id="name" name="user_name" placeholder="Your Name" required>
 
                 <label for="email">Email</label>
-                <input type="email" id="email" placeholder="Your Email" required>
+                <input type="email" id="email" name="user_email" placeholder="Your Email" required>
 
                 <label for="message">Message</label>
-                <textarea id="message" rows="6" placeholder="Your Message" required></textarea>
+                <textarea id="message" name="user_message" rows="6" placeholder="Your Message" required></textarea>
 
                 <button type="submit" class="btn" style="width:100%; margin-top:15px;">Send Message</button>
             </form>
 
             <p id="form-feedback" style="display:none; text-align:center; margin-top:15px;"></p>
 
-            <p style="text-align:center; margin-top:15px;">Or WhatsApp: 
-                <a href="https://wa.me/254790283553" target="_blank" style="color:#38bdf8;">+254790283553</a>
+            <p style="text-align:center; margin-top:15px;">Or WhatsApp:
+                <a href="https://wa.me/254790283553" target="_blank" rel="noopener" style="color:#38bdf8;">+254790283553</a>
             </p>
-            <p style="text-align:center;">Book a call: 
-                <a href="https://calendly.com/" target="_blank" style="color:#38bdf8;">Calendly</a>
+            <p style="text-align:center;">Book a call:
+                <a href="https://calendly.com/" target="_blank" rel="noopener" style="color:#38bdf8;">Calendly</a>
             </p>
         </div>
     </div>
@@ -363,85 +392,141 @@ Highly motivated cybersecurity enthusiast with strong foundational skills in off
 </footer>
 
 <!-- Back to top -->
-<div id="back-to-top">&#8679;</div>
+<div id="back-to-top" role="button" aria-label="Back to top" tabindex="0">&#8679;</div>
 
 <!-- EmailJS -->
 <script src="https://cdn.jsdelivr.net/npm/emailjs-com@3/dist/email.min.js"></script>
 <script>
-emailjs.init("UmHEUytNUr2XTwsdH"); // Public Key
-
-document.getElementById("contact-form").addEventListener("submit", function(e) {
-    e.preventDefault();
-    const feedback = document.getElementById("form-feedback");
-    const btn = document.querySelector("#contact-form button");
-    btn.disabled = true;
-
-    emailjs.send(
-        "service_ekz2hms",
-        "template_6lt2tku",
-        {
-            name: document.getElementById("name").value,
-            email: document.getElementById("email").value,
-            message: document.getElementById("message").value,
-            time: new Date().toLocaleString()
+/*
+  Defensive DOM handling: wait for DOM content, guard event attachment,
+  toggle aria-expanded for the mobile menu, and ensure skill-bars animate
+  on scroll or when they become visible.
+*/
+document.addEventListener('DOMContentLoaded', function () {
+    // Initialize EmailJS if available
+    try {
+        if (window.emailjs && typeof emailjs.init === 'function') {
+            emailjs.init("UmHEUytNUr2XTwsdH"); // Public Key
         }
-    ).then(() => {
-        feedback.style.display = "block";
-        feedback.style.color = "#38bdf8";
-        feedback.innerText = "✅ Message sent successfully!";
-        document.getElementById("contact-form").reset();
-    }).catch((error) => {
-        feedback.style.display = "block";
-        feedback.style.color = "#f87171";
-        feedback.innerText = "❌ Message failed. Try again.";
-        console.error("EmailJS error:", error);
-    }).finally(() => { btn.disabled = false; });
-});
-// Mobile menu toggle
-const menuToggle = document.getElementById('menu-toggle');
-const navLinks = document.getElementById('nav-links');
-
-menuToggle.addEventListener('click', () => {
-    navLinks.classList.toggle('show');
-});
-
-// Scroll animations
-const faders = document.querySelectorAll('.fade-left, .fade-right, .timeline-card');
-const appearOptions = { threshold: 0.2, rootMargin: "0px 0px -50px 0px" };
-const appearOnScroll = new IntersectionObserver(function(entries, observer) {
-    entries.forEach(entry => {
-        if(entry.isIntersecting){
-            entry.target.classList.add('show');
-            observer.unobserve(entry.target);
-        }
-    });
-}, appearOptions);
-
-faders.forEach(fader => appearOnScroll.observe(fader));
-
-// Animate skill bars
-const skillBars = document.querySelectorAll('.skill-bar-fill');
-window.addEventListener('scroll', () => {
-    skillBars.forEach(bar => {
-        const barPos = bar.getBoundingClientRect().top;
-        const screenPos = window.innerHeight;
-        if(barPos < screenPos - 50){
-            bar.style.width = bar.getAttribute('data-width');
-        }
-    });
-});
-
-// Back to top button
-const backToTop = document.getElementById('back-to-top');
-window.addEventListener('scroll', () => {
-    if(window.scrollY > 500){
-        backToTop.style.display = 'block';
-    } else {
-        backToTop.style.display = 'none';
+    } catch (e) {
+        // don't break page if EmailJS fails to load
+        console.error("EmailJS init failed:", e);
     }
-});
-backToTop.addEventListener('click', () => {
-    window.scrollTo({top:0, behavior:'smooth'});
+
+    // Contact form handling
+    const contactForm = document.getElementById("contact-form");
+    const feedback = document.getElementById("form-feedback");
+    if (contactForm && window.emailjs) {
+        contactForm.addEventListener("submit", function(e) {
+            e.preventDefault();
+            const btn = contactForm.querySelector("button[type='submit']");
+            if (btn) btn.disabled = true;
+
+            const name = document.getElementById("name")?.value || '';
+            const email = document.getElementById("email")?.value || '';
+            const message = document.getElementById("message")?.value || '';
+
+            emailjs.send(
+                "service_ekz2hms",
+                "template_6lt2tku",
+                {
+                    name: name,
+                    email: email,
+                    message: message,
+                    time: new Date().toLocaleString()
+                }
+            ).then(() => {
+                if (feedback) {
+                    feedback.style.display = "block";
+                    feedback.style.color = "#38bdf8";
+                    feedback.innerText = "✅ Message sent successfully!";
+                }
+                contactForm.reset();
+            }).catch((error) => {
+                if (feedback) {
+                    feedback.style.display = "block";
+                    feedback.style.color = "#f87171";
+                    feedback.innerText = "❌ Message failed. Try again.";
+                }
+                console.error("EmailJS error:", error);
+            }).finally(() => { if (btn) btn.disabled = false; });
+        });
+    } else if (contactForm) {
+        // If EmailJS not available, show a message but allow local validation
+        contactForm.addEventListener("submit", function(e) {
+            e.preventDefault();
+            if (feedback) {
+                feedback.style.display = "block";
+                feedback.style.color = "#f59e0b";
+                feedback.innerText = "Email service not available. Please contact via WhatsApp or Calendly.";
+            }
+        });
+    }
+
+    // Mobile menu toggle with aria-expanded
+    const menuToggle = document.getElementById('menu-toggle');
+    const navLinks = document.getElementById('nav-links');
+    if (menuToggle && navLinks) {
+        menuToggle.addEventListener('click', () => {
+            const expanded = menuToggle.getAttribute('aria-expanded') === 'true';
+            menuToggle.setAttribute('aria-expanded', String(!expanded));
+            navLinks.classList.toggle('show');
+        });
+    }
+
+    // Scroll animations (IntersectionObserver)
+    const faders = document.querySelectorAll('.fade-left, .fade-right, .timeline-card');
+    if (faders && faders.length) {
+        const appearOptions = { threshold: 0.2, rootMargin: "0px 0px -50px 0px" };
+        const appearOnScroll = new IntersectionObserver(function(entries, observer) {
+            entries.forEach(entry => {
+                if(entry.isIntersecting){
+                    entry.target.classList.add('show');
+                    observer.unobserve(entry.target);
+                }
+            });
+        }, appearOptions);
+        faders.forEach(fader => appearOnScroll.observe(fader));
+    }
+
+    // Animate skill bars when they enter viewport or on load if visible
+    const skillBars = document.querySelectorAll('.skill-bar-fill');
+    function revealSkillBars() {
+        skillBars.forEach(bar => {
+            const rect = bar.getBoundingClientRect();
+            if (rect.top < window.innerHeight - 50) {
+                const w = bar.getAttribute('data-width') || '0';
+                bar.style.width = w;
+            }
+        });
+    }
+    // Run on load and on scroll
+    revealSkillBars();
+    window.addEventListener('scroll', revealSkillBars, { passive: true });
+
+    // Back to top button behavior
+    const backToTop = document.getElementById('back-to-top');
+    if (backToTop) {
+        function toggleBackToTop() {
+            if (window.scrollY > 500) {
+                backToTop.style.display = 'block';
+            } else {
+                backToTop.style.display = 'none';
+            }
+        }
+        toggleBackToTop();
+        window.addEventListener('scroll', toggleBackToTop, { passive: true });
+
+        backToTop.addEventListener('click', () => {
+            window.scrollTo({top:0, behavior:'smooth'});
+        });
+        backToTop.addEventListener('keydown', (e) => {
+            if (e.key === 'Enter' || e.key === ' ') {
+                e.preventDefault();
+                window.scrollTo({top:0, behavior:'smooth'});
+            }
+        });
+    }
 });
 </script>
 </body>
