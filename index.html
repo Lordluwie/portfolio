@@ -307,37 +307,45 @@ footer { text-align:center; padding:30px; background:#f8f3f3; color:#0f50ac; }
 <!-- Back to top -->
 <div id="back-to-top">&#8679;</div>
 
-<!-- EmailJS -->
-<script src="https://cdn.jsdelivr.net/npm/emailjs-com@3/dist/email.min.js"></script>
 <script>
-emailjs.init("UmHEUytNUr2XTwsdH"); // Public Key
-
-document.getElementById("contact-form").addEventListener("submit", function(e) {
+document.getElementById("contact-form").addEventListener("submit", async function(e) {
     e.preventDefault();
+
     const feedback = document.getElementById("form-feedback");
     const btn = document.querySelector("#contact-form button");
     btn.disabled = true;
 
-    emailjs.send(
-        "service_ekz2hms",
-        "template_6lt2tku",
-        {
-            name: document.getElementById("name").value,
-            email: document.getElementById("email").value,
-            message: document.getElementById("message").value,
-            time: new Date().toLocaleString()
+    const name = document.getElementById("name").value;
+    const email = document.getElementById("email").value;
+    const message = document.getElementById("message").value;
+
+    try {
+        const res = await fetch("https://portfolio-backend-phqp.onrender.com/send-email", {
+            method: "POST",
+            headers: { "Content-Type": "application/json" },
+            body: JSON.stringify({ name, email, message })
+        });
+
+        const data = await res.json();
+
+        if(res.ok) {
+            feedback.style.color = "#38bdf8";
+            feedback.innerText = data.message || "✅ Message sent successfully!";
+            document.getElementById("contact-form").reset();
+        } else {
+            feedback.style.color = "#f87171";
+            feedback.innerText = data.error || "❌ Something went wrong.";
         }
-    ).then(() => {
+
         feedback.style.display = "block";
-        feedback.style.color = "#38bdf8";
-        feedback.innerText = "✅ Message sent successfully!";
-        document.getElementById("contact-form").reset();
-    }).catch((error) => {
+    } catch(err) {
+        console.error(err);
         feedback.style.display = "block";
         feedback.style.color = "#f87171";
-        feedback.innerText = "❌ Message failed. Try again.";
-        console.error("EmailJS error:", error);
-    }).finally(() => { btn.disabled = false; });
+        feedback.innerText = "❌ Could not connect to backend.";
+    } finally {
+        btn.disabled = false;
+    }
 });
 
 // Scroll animations
@@ -351,7 +359,6 @@ const appearOnScroll = new IntersectionObserver(function(entries, observer) {
         }
     });
 }, appearOptions);
-
 faders.forEach(fader => appearOnScroll.observe(fader));
 
 // Animate skill bars
@@ -382,11 +389,9 @@ backToTop.addEventListener('click', () => {
 // Hamburger menu toggle
 const navToggle = document.querySelector('.nav-toggle');
 const navLinks = document.querySelector('.nav-links');
-
 navToggle.addEventListener('click', () => {
     navLinks.classList.toggle('show');
 });
-
 // Close menu on link click
 navLinks.querySelectorAll('a').forEach(link => {
     link.addEventListener('click', () => {
@@ -394,5 +399,6 @@ navLinks.querySelectorAll('a').forEach(link => {
     });
 });
 </script>
+
 </body>
 </html>
