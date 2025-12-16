@@ -33,13 +33,23 @@ I am a motivated **Cybersecurity Analyst & Software Developer** passionate about
 | **🔹 Mini Android Project** | Basic Android app learning UI design and app lifecycle | Java, Android Basics |
 
 ---
-xt
 ## 📜 Education
 
-- **ALU: Software Engineering** – Hands-on software development, cybersecurity labs, and real-world projects
+- **ALU: Software Engineering** – Hands-on software development, real-world projects, and cybersecurity integration
+- **Cybersecurity** – Threat detection, vulnerability assessment, and defensive security operations
 - **KCSE** – Kenya Certificate of Secondary Education
-- **Cybersecurity** – Practical software engineering & cybersecurity training via CTFs and labs
----
+
+## 👨‍💼 Experience
+
+- **SOC Analyst** – Security monitoring, threat detection, log analysis, and incident response
+
+## 🎯 Future Goals
+
+- Android development with Kotlin  
+- SOC engineering & advanced threat hunting  
+- Secure full-stack application development  
+- Open-source security contributions  
+- Become a professional racing driver and compete in series such as **F4 India**
 
 ## 📈 GitHub Stats
 
