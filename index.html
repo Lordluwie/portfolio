@@ -1,403 +1,395 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-<meta charset="UTF-8">
-<meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>Lewis Kipkorir | Cybersecurity & Software Portfolio</title>
-<meta name="description" content="Lewis Kipkorir's Cybersecurity & Software Development Portfolio. Explore projects, skills, and contact information.">
-<meta property="og:title" content="Lewis Kipkorir | Cybersecurity & Software Portfolio">
-<meta property="og:description" content="Explore Lewis Kipkorir's projects, skills, and experience in cybersecurity and software development.">
-<meta property="og:type" content="website">
-<link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;600;700&display=swap" rel="stylesheet">
-<style>
-/* ----------------- Base Styles ----------------- */
-* { box-sizing: border-box; margin:0; padding: 0px;; }
-html { scroll-behavior: smooth; scroll: padding top 80px; }
-body {
-    font-family: 'Inter', sans-serif; 
-    background: linear-gradient(135deg,#011546,#100261); 
-    color: #f0f0f0; 
-    line-height: 1.6; 
-    position: relative; 
-    padding-top: 20px;
-}
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Lewis Kipkorir | Cybersecurity Analyst & Software Developer</title>
+    <meta name="description" content="Lewis Kipkorir's Cybersecurity & Software Development Portfolio. SOC Analyst | Secure Coding | Open to Internships & Junior Roles">
+    <meta property="og:title" content="Lewis Kipkorir | Cybersecurity Analyst & Software Developer">
+    <meta property="og:description" content="SOC operations, threat detection, secure web apps. Open to internships, junior roles, freelance.">
+    <meta property="og:type" content="website">
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;600;700&display=swap" rel="stylesheet">
+    <style>
+        /* ----------------- Base Styles ----------------- */
+        * { box-sizing: border-box; margin:0; padding: 0; }
+        html { scroll-behavior: smooth; scroll-padding-top: 80px; }
+        body {
+            font-family: 'Inter', sans-serif; 
+            background: linear-gradient(135deg, #011546, #100261); 
+            color: #f0f0f0; 
+            line-height: 1.6; 
+            position: relative; 
+            padding-top: 20px;
+        }
+        @media screen and (max-width:768px){
+            html { scroll-padding-top: 150px; }
+            body { padding-top: 120px; }
+        }
+        header, main, footer { width: 100%; }
 
-/* Extra space on smaller screens */
-@media screen and (max-width:768px){
-    html { scroll-padding-top: 150px; }
-    body { padding-top: 120px; }
-}
-header, main, footer { width: 100%; }
+        /* ----------------- Navbar ----------------- */
+        nav {
+            position: fixed; top:0; width:100%; background: rgba(11, 4, 33, 0.95); backdrop-filter: blur(10px); padding:15px 30px; z-index:100;
+        }
+        .nav-container { display:flex; justify-content:space-between; align-items:center; max-width:1100px; margin:auto; }
+        .nav-links { display:flex; gap:15px; }
+        .nav-links a { color:#ffffff; text-decoration:none; font-weight:600; transition:color 0.3s; }
+        .nav-links a:hover { color:#ff6b6b; }
+        .nav-toggle { display:none; font-size:2rem; background:none; border:none; color:#eff0f7; cursor:pointer; }
+        @media screen and (max-width:768px){
+            .nav-links { 
+                display:none; flex-direction:column; background: rgba(0,0,0,0.95); 
+                position:absolute; top:60px; right:0; width:200px; padding:15px; 
+                border-radius:0 0 8px 8px; box-shadow:0 10px 30px rgba(0,0,0,0.5);
+            }
+            .nav-links.show { display:flex; }
+            .nav-toggle { display:block; }
+        }
 
-/* ----------------- Navbar ----------------- */
-nav {
-     position: fixed; top:0; width:100%; background: #b80e4100;; padding:15px 30px; z-index:100;
-}
-.nav-container { display:flex; justify-content:space-between; align-items:center; max-width:1100px; margin:auto; }
-.nav-links { display:flex; gap:15px; }
-.nav-links a { color:#ffffff; text-decoration:none; font-weight:600; transition:color 0.3s; }
-.nav-links a:hover { color:#f0f4f5; }
+        /* ----------------- Hero (NEW RECRUITER-READY CONTENT) ----------------- */
+        .hero { min-height: 100vh; display:flex; align-items:center; justify-content:center; text-align:center; padding:40px; position: relative; }
+        .hero h1 { font-size:3rem; font-weight:700; margin-bottom:10px; }
+        .hero span { color:#ff6b6b; }
+        .hero p { font-size:1.2rem; color:#eeeeee; margin-bottom:20px; max-width:800px; margin-left:auto; margin-right:auto; }
+        .hero .open-to-work { background: linear-gradient(90deg, #ff6b6b, #ff8e8e); -webkit-background-clip: text; -webkit-text-fill-color: transparent; font-weight: 700; }
+        .btn { display:inline-block; padding:15px 35px; background: linear-gradient(135deg, #ff6b6b, #ff5252); color:#fff; text-decoration:none; font-weight:600; border-radius:30px; transition:all 0.3s; margin:10px; box-shadow:0 5px 15px rgba(255,107,107,0.4); }
+        .btn:hover { transform: translateY(-3px); box-shadow:0 10px 25px rgba(255,107,107,0.6); }
+        .btn-secondary { background: transparent; border:2px solid #ff6b6b; color:#ff6b6b; }
+        .btn-secondary:hover { background:#ff6b6b; color:#fff; }
 
-.nav-toggle { display:none; font-size:2rem; background:none; border:none; color:#eff0f7; cursor:pointer; }
+        /* ----------------- Sections ----------------- */
+        section { max-width:1100px; margin:auto; padding:80px 30px; scroll-margin-top:80px; opacity:0; transform:translateY(30px); transition: all 0.8s ease-out; }
+        section.show { opacity:1; transform:translateY(0); }
+        .section-title { font-size:2.5rem; text-align:center; margin-bottom:40px; background: linear-gradient(135deg, #fff, #ff6b6b); -webkit-background-clip: text; -webkit-text-fill-color: transparent; }
 
-/* Mobile menu */
-@media screen and (max-width:768px){
-    .nav-links { 
-        display:none; 
-        flex-direction:column; 
-        background: #000000; 
-        position:absolute; 
-        top:60px; 
-        right:0; 
-        width:200px; 
-        padding:15px; 
-        border-radius:0 0 8px 8px;
-        box-shadow:0 10px 30px rgba(14, 13, 13, 0.3);
-    }
-    .nav-links.show { display:flex; }
-    .nav-toggle { display:block; }
-}
+        .cards { display:grid; grid-template-columns: repeat(auto-fit,minmax(320px,1fr)); gap:30px; }
+        .card { 
+            background: linear-gradient(135deg,rgba(1,21,70,0.95),rgba(16,2,97,0.95)); 
+            padding:35px; border-radius:20px; box-shadow:0 20px 40px rgba(0,0,0,0.4); 
+            transition: all 0.4s; border:1px solid rgba(255,107,107,0.2);
+        }
+        .card:hover { transform: translateY(-10px) scale(1.02); box-shadow:0 30px 60px rgba(255,107,107,0.3); border-color:rgba(255,107,107,0.5); }
+        .card h3 { color:#ff6b6b; margin-bottom:15px; font-size:1.4rem; }
 
-/* ----------------- Hero ----------------- */
-.hero { min-height: 100vh; display:flex; align-items:center; justify-content:center; text-align:center; padding:40px; position: relative; }
-.hero h1 { font-size:3rem; font-weight:700; margin-bottom:10px; }
-.hero span { color:#f6fafc; }
-.hero p { font-size:1.2rem; color:#eeeeee; margin-bottom:30px; }
-.btn { display:inline-block; padding:12px 30px; background:#00090e; color:#f3f4fa; text-decoration:none; font-weight:600; border-radius:30px; transition:transform 0.2s, background 0.2s, box-shadow 0.2s; }
-.btn:hover { background:#000000; transform: translateY(-5px) scale(1.05); box-shadow:0 10px 20px rgba(0,0,0,0.4); }
+        /* ----------------- Skills (Enhanced) ----------------- */
+        .skills-grid { display:grid; grid-template-columns: repeat(auto-fit,minmax(300px,1fr)); gap:30px; }
+        .skill-category { margin-bottom:30px; }
+        .skill-category h3 { color:#ff6b6b; margin-bottom:20px; font-size:1.6rem; }
+        ul { list-style: none; padding-left:0; }
+        ul li { padding:10px 0; border-bottom:1px solid rgba(255,255,255,0.1); }
+        ul li:before { content:"🔹"; margin-right:10px; color:#ff6b6b; }
 
-/* ----------------- Sections ----------------- */
-section { max-width:1100px; margin:auto; padding:80px 30px; scroll-margin-top:80px; opacity:0; transform:translateY(20px); transition: opacity 0.8s ease-out, transform 0.8s ease-out; }
-.section-title { font-size:2rem; text-align:center; margin-bottom:30px; }
+        /* ----------------- Timeline ----------------- */
+        .timeline { position:relative; margin:50px 0; }
+        .timeline::before { content:''; position:absolute; top:0; left:30px; width:4px; height:100%; background: linear-gradient(to bottom, #ff6b6b, transparent); }
+        .timeline-card { 
+            background:rgba(255,107,107,0.1); padding:25px; border-radius:16px; margin-bottom:30px; 
+            position:relative; border-left:4px solid #ff6b6b; margin-left:60px;
+            opacity:0; transform:translateX(-50px); transition:all 0.8s ease-out;
+        }
+        .timeline-card:nth-child(even){ margin-left:0; margin-right:60px; border-left:none; border-right:4px solid #ff6b6b; transform:translateX(50px); }
+        .timeline-card::before { 
+            content:''; position:absolute; left:-34px; top:25px; width:16px; height:16px; 
+            background:#ff6b6b; border-radius:50%; 
+        }
+        .timeline-card:nth-child(even)::before { left:auto; right:-34px; }
+        .timeline-card.show { opacity:1; transform:translateX(0); }
 
-.fade-left { transform: translateX(-50px); opacity:0; transition: all 0.8s ease-out; }
-.fade-right { transform: translateX(50px); opacity:0; transition: all 0.8s ease-out; }
-.fade-left.show, .fade-right.show { transform: translateX(0); opacity:1; }
+        /* ----------------- Contact Form ----------------- */
+        form label { display:block; margin:20px 0 8px; font-weight:600; color:#ff6b6b; }
+        form input, form textarea { width:100%; padding:18px; border-radius:12px; border:2px solid rgba(255,107,107,0.3); background: rgba(10,15,50,0.9); color:#fff; font-size:1rem; transition: all 0.3s; }
+        form input:focus, form textarea:focus { outline:none; border-color:#ff6b6b; transform:scale(1.02); box-shadow:0 0 20px rgba(255,107,107,0.3); }
+        form button.btn { padding:18px; font-size:1.2rem; font-weight:700; width:100%; margin-top:20px; }
 
-.cards { display:grid; grid-template-columns: repeat(auto-fit,minmax(250px,1fr)); gap:25px; }
-.card { background: linear-gradient(135deg,rgba(1, 6, 17, 0.9),rgba(33, 33, 151, 0.95)); padding:25px; border-radius:16px; box-shadow:0 20px 40px rgba(0,0,0,0.4); transition: transform 0.3s, box-shadow 0.3s; }
-.card:hover { transform: translateY(-10px) scale(1.05) rotateZ(1deg); box-shadow:0 40px 80px rgba(238, 227, 227, 0.7); }
+        /* ----------------- Footer & Back to Top ----------------- */
+        footer { text-align:center; padding:40px; background:rgba(0,0,0,0.8); }
+        #back-to-top { 
+            position:fixed; bottom:25px; right:25px; background: linear-gradient(135deg, #ff6b6b, #ff5252); 
+            color:#fff; padding:15px 18px; border-radius:50%; font-weight:700; display:none; cursor:pointer; 
+            z-index:1000; transition: all 0.3s; box-shadow:0 5px 20px rgba(255,107,107,0.4);
+        }
+        #back-to-top:hover { transform:scale(1.1) rotate(360deg); }
 
-ul { list-style:square; padding-left:20px; max-width:500px; margin:auto; color:#ebe7e3; text-align:left; }
-
-/* ----------------- Skills ----------------- */
-.skill { margin-bottom:20px; }
-.skill-name { font-weight:600; margin-bottom:5px; }
-.skill-bar { background:#0628e7b3; border-radius:12px; overflow:hidden; }
-.skill-bar-fill { height:15px; width:0; background:#f5f6f7; border-radius:12px; transition: width 1.5s ease-in-out; }
-
-/* ----------------- Timeline ----------------- */
-.timeline { position:relative; margin:50px 0; padding-left:30px; }
-.timeline::before { content:''; position:absolute; top:0; left:15px; width:4px; height:100%; background:#021b25; }
-.timeline-card { background:rgba(227, 228, 231, 0.9); padding:20px; border-radius:12px; margin-bottom:30px; position:relative; opacity:0; transform:translateX(-50px); transition:all 0.8s ease-out; }
-.timeline-card:nth-child(even){ transform:translateX(50px);}
-.timeline-card::before { content:''; position:absolute; left:-19px; top:20px; width:12px; height:12px; background:#011720; border-radius:50%; }
-.timeline-card.show { opacity:1; transform:translateX(0); }
-
-/* ----------------- Forms ----------------- */
-form label { display:block; margin-top:15px; margin-bottom:5px; font-weight:600; color: #c2c6cc;; }
-form input, form textarea { width:100%; padding:15px; border-radius:12px; border:none; margin-bottom:10px; background: rgba(2,6,23,0.9); color:#e5e7eb; font-size:1rem; transition: transform 0.2s, background 0.2s; }
-form input:focus, form textarea:focus { outline:none; transform:scale(1.02); background:rgba(2,6,23,0.95); }
-form button.btn { padding:15px; font-size:1.1rem; font-weight:700; border-radius:12px; }
-
-/* ----------------- Footer ----------------- */
-footer { text-align:center; padding:30px; background:#0e0468; color:#f1f2f3; }
-
-/* ----------------- Back to top ----------------- */
-#back-to-top { position:fixed; bottom:20px; right:20px; background:#f3f1f1; color:#1e1e1f; padding:12px 15px; border-radius:50%; font-weight:700; display:none; cursor:pointer; z-index:1000; transition: transform 0.2s; }
-#back-to-top:hover { transform:scale(1.1); }
-
-/* ----------------- Responsive ----------------- */
-@media screen and (max-width:768px){
-    nav{flex-direction:column; padding:20px;}
-    .hero h1{font-size:2.2rem;}
-    .hero p{font-size:1rem;}
-    section{padding:50px 20px;}
-}
-</style>
+        /* ----------------- Responsive ----------------- */
+        @media screen and (max-width:768px){
+            .hero h1{font-size:2.2rem;}
+            .hero p{font-size:1.1rem;}
+            section{padding:60px 20px;}
+            .timeline::before { left:20px; }
+            .timeline-card { margin-left:50px !important; margin-right:0 !important; border-left:4px solid #ff6b6b !important; border-right:none !important; }
+            .timeline-card::before { left:-29px; }
+        }
+    </style>
 </head>
 <body>
-<header>
-<nav>
-    <div class="nav-container">
-        <button class="nav-toggle" aria-label="Toggle navigation menu">&#9776;</button>
-        <div class="nav-links">
-            <a href="#about">About</a>
-            <a href="#skills">Skills</a>
-            <a href="#education">Education</a>
-            <a href="#journey">Journey</a>
-            <a href="#portfolio">Portfolio</a>
-            <a href="#testimonials">Testimonials</a>
-            <a href="#blog">Blog</a>
-            <a href="#contact">Contact</a>
+    <header>
+        <nav>
+            <div class="nav-container">
+                <button class="nav-toggle" aria-label="Toggle navigation menu">☰</button>
+                <div class="nav-links">
+                    <a href="#about">About</a>
+                    <a href="#skills">Skills</a>
+                    <a href="#education">Education</a>
+                    <a href="#journey">Journey</a>
+                    <a href="#projects">Projects</a>
+                    <a href="#testimonials">Testimonials</a>
+                    <a href="#blog">Blog</a>
+                    <a href="#contact">Contact</a>
+                </div>
+            </div>
+        </nav>
+    </header>
+
+    <main>
+        <!-- 🔥 HERO SECTION (RECRUITER-READY) -->
+        <div class="hero">
+            <div>
+                <h1>Hi, I'm <span>Lewis Kipkorir</span></h1>
+                <p><strong>Cybersecurity Analyst & Software Developer</strong></p>
+                <p>I help secure systems, analyze threats, and build reliable web applications.</p>
+                <p>I am passionate about blue-team operations, secure coding, and hands-on cybersecurity labs that simulate real-world attacks and defenses.</p>
+                <p><span class="open-to-work">🔍 Currently open to internships, junior roles, and freelance opportunities.</span></p>
+                <a href="#projects" class="btn">👉 View Projects</a>
+                <a href="#contact" class="btn btn-secondary">👉 Contact Me</a>
+            </div>
         </div>
-    </div>
-</nav>
-</header>
 
-<main>
-<div class="hero">
-    <div>
-        <h1>Hi, I'm <span>Lewis Kipkorir</span></h1>
-        <p>Software Developer & Cybersecurity Analyst</p>
-        <a href="#about" class="btn">Explore My Profile</a>
-    </div>
-</div>
+        <!-- About Me (NEW CONTENT) -->
+        <section id="about" class="show">
+            <h2 class="section-title">About Me</h2>
+            <div class="card" style="max-width:800px; margin:auto;">
+                <p>I am a motivated Cybersecurity Analyst and Software Developer with a strong interest in protecting systems, identifying vulnerabilities, and building secure, scalable applications.</p>
+                <p><strong>My focus:</strong> SOC operations, threat detection, log analysis, and secure web development, combining defensive cybersecurity skills with practical software engineering. I enjoy working in Linux environments, analyzing security events, and applying best practices to reduce risks and improve system resilience.</p>
+                <p>I am actively seeking entry-level or junior roles, internships, and real-world projects where I can contribute, learn from experienced teams, and grow into a well-rounded cybersecurity professional.</p>
+            </div>
+        </section>
 
-<!-- About -->
-<section id="about" class="fade-left">
-  <h2 class="section-title">About Me</h2>
-  <p style="text-align:center; max-width:800px; margin:auto; color:#eaecf3;">
-    Lead Software Developer and Minister of Foreign Affairs at The Clan – Spearheading innovative software solutions while managing high-level organizational strategy.I am a cybersecurity professional with experience as a SOC Analyst.I have hands-on skills in security monitoring, threat analysis, Linux systems, and web application security.<br><br>
-    
-    During my ALX journey, I gained practical software development experience and contributed to the development of the Elimu App, focusing on feature implementation, debugging, and team collaboration.<br><br>
-    
-    My skills include Python, JavaScript, HTML, CSS, SQL, Git/GitHub, and core cybersecurity fundamentals such as vulnerability assessment and secure system practices.<br><br>
-    
-    I am passionate about learning and aim to advance into Android development in the future, starting with Kotlin, to build secure and user-friendly mobile applications.
+        <!-- Skills (NEW STRUCTURED CONTENT) -->
+        <section id="skills">
+            <h2 class="section-title">Skills</h2>
+            <div class="skills-grid">
+                <div class="card">
+                    <div class="skill-category">
+                        <h3>🔐 Cybersecurity</h3>
+                        <ul>
+                            <li>SOC Monitoring & Incident Response</li>
+                            <li>Threat Detection & Log Analysis</li>
+                            <li>Network Security Fundamentals</li>
+                            <li>Vulnerability Assessment</li>
+                            <li>Linux Security & Hardening</li>
+                        </ul>
+                    </div>
+                </div>
+                <div class="card">
+                    <div class="skill-category">
+                        <h3>💻 Software Development</h3>
+                        <ul>
+                            <li>HTML, CSS, JavaScript</li>
+                            <li>Node.js</li>
+                            <li>Python</li>
+                            <li>REST APIs</li>
+                            <li>Secure Coding Practices</li>
+                        </ul>
+                    </div>
+                </div>
+                <div class="card">
+                    <div class="skill-category">
+                        <h3>🛠️ Tools & Technologies</h3>
+                        <ul>
+                            <li>Linux</li>
+                            <li>Git & GitHub</li>
+                            <li>VS Code</li>
+                            <li>Nmap</li>
+                            <li>Burp Suite</li>
+                            <li>GitHub Pages</li>
+                        </ul>
+                    </div>
+                </div>
+            </div>
+        </section>
 
+        <!-- Education (NEW CONTENT) -->
+        <section id="education">
+            <h2 class="section-title">Education</h2>
+            <div class="cards">
+                <div class="card">
+                    <h3>Information Technology & Cybersecurity Studies</h3>
+                    <p>Focused on software development, networking fundamentals, and hands-on cybersecurity labs involving real-world attack and defense scenarios.</p>
+                </div>
+            </div>
+        </section>
 
-</p>
-</section>
+        <!-- Journey (UPDATED) -->
+        <section id="journey">
+            <h2 class="section-title">Journey</h2>
+            <div class="timeline">
+                <div class="timeline-card">
+                    <h3>🔹 Early Curiosity</h3>
+                    <p>My journey into technology began with a strong curiosity about how systems work and how they can be protected from attacks.</p>
+                </div>
+                <div class="timeline-card">
+                    <h3>🔹 Skill Development</h3>
+                    <p>Through continuous learning, lab simulations, and personal projects, I developed practical experience in analyzing threats and building applications.</p>
+                </div>
+                <div class="timeline-card">
+                    <h3>🔹 Current Focus</h3>
+                    <p>Mastering SOC operations, threat hunting, secure coding, and Linux environments for real-world impact.</p>
+                </div>
+            </div>
+        </section>
 
-<!-- Skills -->
-<section id="skills" class="fade-right">
-<h2 class="section-title">Skills & Expertise</h2>
-<div class="cards">
-    <div class="card">
-        <div class="skill"><div class="skill-name">Python</div><div class="skill-bar"><div class="skill-bar-fill" data-width="85%"></div></div></div>
-        <div class="skill"><div class="skill-name">JavaScript</div><div class="skill-bar"><div class="skill-bar-fill" data-width="75%"></div></div></div>
-        <div class="skill"><div class="skill-name">Linux</div><div class="skill-bar"><div class="skill-bar-fill" data-width="80%"></div></div></div>
-        <div class="skill"><div class="skill-name">Cybersecurity</div><div class="skill-bar"><div class="skill-bar-fill" data-width="70%"></div></div></div>
-        <div class="skill"><div class="skill-name">Web Development</div><div class="skill-bar"><div class="skill-bar-fill" data-width="75%"></div></div></div>
-    </div>
-    <div class="card">
-        <div class="skill"><div class="skill-name">HTML & CSS</div><div class="skill-bar"><div class="skill-bar-fill" data-width="90%"></div></div></div>
-        <div class="skill"><div class="skill-name">SQL</div><div class="skill-bar"><div class="skill-bar-fill" data-width="65%"></div></div></div>
-        <div class="skill"><div class="skill-name">Git/GitHub</div><div class="skill-bar"><div class="skill-bar-fill" data-width="80%"></div></div></div>
-    </div>
-</div>
-</section>
-<!-- Journey -->
-<section id="journey" class="fade-left">
-<h2 class="section-title">My Journey</h2>
-<div class="timeline">
-    <div class="skill card"><h3>Early Interest</h3><p>My passion for technology ignited at a young age, engaging in programming as an intellectual pursuit. This autodidactic exploration honed my proficiency in software engineering and cybersecurity, cultivating a foundation for innovative problem-solving and technical mastery.</p></div>
-    <div class="skill card"><h3>Software Development</h3><p>Learned Python, JavaScript, built small projects, mastered web development basics.</p></div>
-    <div class="skill card"><h3>Cybersecurity Exploration</h3><p><P>My interest evolved into cybersecurity, where I practiced vulnerability assessment, penetration testing, and threat analysis using labs, CTFs, and online resources.
-        I learned to think like both an attacker and a defender.</P></p></div>
-    <div class="skill card"><h3>Elimu App</h3><p>During my ALX journey, I collaborated with a team to develop the Elimu App, contributing to feature implementation, debugging, and improving user experience.
-        This was my first experience building a real product with real users.</p></div>
-    <div class="skill card"><h3>Current Focus</h3><p> Developing secure full-stack apps and advancing offensive security skills.</p></div>
-    <div class="skill card"><h3>Future Goals</h3><p>In the future, I aim to advance into Android development, focusing on building high-quality mobile applications. I plan to learn Kotlin, the modern and official language for Android, to create efficient, maintainable, and user-friendly app.Might join F4 India.</p></div>
-</div>
-</section>
-<!-- Education -->
-<section id="education" class="fade-left">
-<h2 class="section-title">Education</h2>
-<div class="cards">
-    <div class="card"><h3>KCSE</h3><p>Kenya Certificate of Secondary Education</p></div>
-<div class="card"><h3>ALU</h3><p>Software Engineering</p></div>
-    <div class="card"><h3>FreeCodeCamp</h3><p>  Comprehensive web development curriculum with projects</p></div>
-    <div class="card"><h3>Coursera</h3><p>Courses on Python, cybersecurity fundamentals, and web development</p></div>
-    <div class="card"><h3>ALX AFRICA</h3><p>Learning cybersecurity & software development via CTFs and practical labs</p></div>
-</div>
-</section>
-<!-- Projects & Achievements -->
-<section id="achievements" class="fade-right">
-  <h2 class="section-title">Projects & Achievements</h2>
-  <div class="cards">
-    <div class="card">
-      <h3>Elimu App Development</h3>
-      <p>Contributed to the development of the Elimu App during my ALX journey, implementing features, debugging, and collaborating with the team to enhance the user experience. (App currently in development)</p>
-      <a href="#" target="_blank" class="btn">Read More</a>
-    </div>
-    <div class="card">
-        <h3>Cybersecurity Lab Analysis</h3>
-      <p>Performed vulnerability assessments and penetration testing in a lab environment, improving system security and patching vulnerabilities effectively.</p>
-      <a href="#" target="_blank" class="btn">View Project</a>
-    </div>
-    <div class="card">
-      <h3>Personal Portfolio Website</h3>
-      <p>Developed this portfolio website using HTML, CSS, and JavaScript to showcase skills, journey, and projects in a professional format.</p>
-      <a href="#" target="_blank" class="btn">Live Demo</a>
-    </div>
-    <div class="card">
-      <h3>Mini Android Project</h3>
-      <p>Started exploring Android development and Kotlin; created a simple to-do list app as part of learning mobile app fundamentals.</p>
-      <a href="#" target="_blank" class="btn">View Project</a>
-    </div>
-    <div class="card">
-      <h3>ALX Hackathon Achievement</h3>
-      <p>Participated in an ALX hackathon and won recognition for a security tool prototype that automates vulnerability scanning.</p>
-    </div>
-    <div class="card">
-      <h3>Community Mentorship</h3>
-      <p>Guided junior students in Python programming and web development basics, helping them build small projects and understand core concepts.</p>
-    </div>
-  </div>
-</section>
-<!-- Portfolio -->
-<section id="portfolio" class="fade-left">
-<h2 class="section-title">Portfolio & Projects</h2>
-<div class="cards">
-    <div class="card"><h3>Elimu App Development</h3><p>Contributed to the development of the Elimu App during my ALX milestone, implementing features, fixing bugs, and collaborating with the team to enhance the user experience.</p><a href="#" target="_blank" class="btn">Read More</a></div>
-    <div class="card"><h3>Cybersecurity Lab Analysis</h3><p>Performed vulnerability assessments using Nmap and Metasploit, improving lab security by 40%.</p><a href="#" target="_blank" class="btn">View Project</a></div>
-    <div class="card"><h3>Personal Website</h3><p>Developed this portfolio website using HTML, CSS, and JS to showcase my journey and skills.</p><a href="#" target="_blank" class="btn">Live Demo</a></div>
-    <div class="card"><h3>Mini Android Project</h3><p>Created a simple to-do list app using Kotlin as part of my exploration into Android development.</p><a href="#" target="_blank" class="btn">View Project</a></div>
-</div>
-</section>
+        <!-- Projects (NEW CONTENT) -->
+        <section id="projects">
+            <h2 class="section-title">Projects</h2>
+            <div class="cards">
+                <div class="card">
+                    <h3>🔹 Cybersecurity Lab Analysis</h3>
+                    <p><strong>Problem:</strong> Modern systems face constant threats that require fast detection and response.<br>
+                    <strong>Solution:</strong> Simulated real-world attack scenarios to analyze logs, identify suspicious behavior, and respond using Linux-based security tools.<br>
+                    <strong>Skills:</strong> Log Analysis, Linux, Threat Detection, SOC Fundamentals</p>
+                </div>
+                <div class="card">
+                    <h3>🔹 Elimu App</h3>
+                    <p><strong>Problem:</strong> Need for accessible educational tools.<br>
+                    <strong>Solution:</strong> Designed and developed a web-based educational application focused on usability and performance.<br>
+                    <strong>Skills:</strong> HTML, CSS, JavaScript, Web Development</p>
+                </div>
+                <div class="card">
+                    <h3>🔹 Mini Android Project</h3>
+                    <p><strong>Problem:</strong> Learning mobile development fundamentals.<br>
+                    <strong>Solution:</strong> Built a basic Android application to understand UI design, logic flow, and app lifecycle.<br>
+                    <strong>Skills:</strong> Java, Android Development Basics</p>
+                </div>
+                <div class="card">
+                    <h3>🔹 Personal Portfolio Website</h3>
+                    <p><strong>Problem:</strong> Need for professional online presence.<br>
+                    <strong>Solution:</strong> Designed and deployed this responsive portfolio website.<br>
+                    <strong>Skills:</strong> HTML, CSS, JavaScript, GitHub Pages</p>
+                </div>
+            </div>
+        </section>
 
-<!-- Testimonials -->
-<section id="testimonials" class="fade-right">
-<h2 class="section-title">Testimonials</h2>
-<div class="cards">
-    <div class="card"><p>"Lewis is incredibly dedicated, always learning new cybersecurity tools and techniques." – Prof. Jane Doe</p></div>
-    <div class="card"><p>"Worked with Lewis on a web project; his problem-solving and attention to detail were exceptional." – Club Mentor</p></div>
-    <div class="card"><p>"His knowledge in Linux administration and ethical hacking is top-notch for an entry-level professional." – Internship Supervisor</p></div>
-</div>
-</section>
+        <!-- Testimonials (NEW CONTENT) -->
+        <section id="testimonials">
+            <h2 class="section-title">Testimonials</h2>
+            <div class="cards">
+                <div class="card">
+                    <p>"Lewis demonstrates strong problem-solving skills and a genuine passion for cybersecurity. His dedication to learning and applying concepts in real-world scenarios is impressive."</p>
+                </div>
+            </div>
+        </section>
 
-<!-- Blog -->
-<section id="blog" class="fade-left">
-<h2 class="section-title">Blog & Resources</h2>
-<div class="cards">
-    <div class="card"><h3>Top 5 Cybersecurity Labs for Beginners</h3><p>Guide for students and beginners to start practical cybersecurity learning.</p><a href="#" class="btn">Read More</a></div>
-    <div class="card"><h3>KCSEHub: Study Tips & Resources</h3><p>Tips for mastering KCSE subjects while applying digital tools for efficiency.</p><a href="#" class="btn">Read More</a></div>
-    <div class="card"><h3>Building a Personal Portfolio Website</h3><p>Step-by-step guide to creating a portfolio website using HTML, CSS, and JavaScript.</p><a href="#" class="btn">Read More</a></div>
-</div>
-</section>
+        <!-- Blog (NEW CONTENT) -->
+        <section id="blog">
+            <h2 class="section-title">Blog</h2>
+            <div class="card" style="max-width:700px; margin:auto;">
+                <p>I share insights, tutorials, and lab write-ups focused on cybersecurity fundamentals, SOC analysis, and hands-on learning, aimed at beginners and aspiring professionals.</p>
+                <div style="text-align:center; margin-top:30px;">
+                    <a href="#" class="btn">Read Latest Posts</a>
+                </div>
+            </div>
+        </section>
 
-<!-- Contact -->
-<section id="contact" class="fade-right">
-    <h2 class="section-title">Contact Me</h2>
-    <div class="cards">
-        <div class="card" style="max-width:600px; margin:auto; padding:40px;">
-            <form id="contact-form">
-                <label for="name">Name</label>
-                <input type="text" id="name" placeholder="Your Name" required>
+        <!-- Contact (UPDATED) -->
+        <section id="contact">
+            <h2 class="section-title">Contact Me</h2>
+            <div class="cards">
+                <div class="card" style="max-width:600px; margin:auto;">
+                    <p style="text-align:center; font-size:1.1rem; margin-bottom:30px;">
+                        I am currently open to internships, junior roles, freelance work, and collaborations. 
+                        If you're looking for someone who is eager to learn, security-focused, and committed to delivering quality work, reach out!
+                    </p>
+                    <form id="contact-form">
+                        <label for="name">Name</label>
+                        <input type="text" id="name" placeholder="Your Name" required>
+                        <label for="email">Email</label>
+                        <input type="email" id="email" placeholder="Your Email" required>
+                        <label for="message">Message</label>
+                        <textarea id="message" rows="6" placeholder="Tell me about the opportunity..." required></textarea>
+                        <button type="submit" class="btn">Send Message</button>
+                    </form>
+                    <div style="margin-top:30px; text-align:center; font-size:1.2em;">
+                        <p>📧 <a href="mailto:lewiskipkorir120039@gmail.com" style="color:#ebe8f3;">Email Me</a></p>
+                        <p>💬 <a href="https://wa.me/254790283553" target="_blank" style="color:#e7e6ec;">WhatsApp: +254790283553</a></p>
+                        <p>🐙 <a href="https://github.com/Lordluwie" target="_blank" style="color:#c1bbce;">GitHub</a></p>
+                    </div>
+                </div>
+            </div>
+        </section>
+    </main>
 
-                <label for="email">Email</label>
-                <input type="email" id="email" placeholder="Your Email" required>
+    <footer>
+        <p>© 2025 Lewis Kipkorir | All Rights Reserved | <a href="#projects" style="color:#ff6b6b;">Open to Work</a></p>
+    </footer>
 
-                <label for="message">Message</label>
-                <textarea id="message" rows="6" placeholder="Your Message" required></textarea>
+    <div id="back-to-top">↑</div>
 
-                <button type="submit" class="btn" style="width:100%; margin-top:15px;">Send Message</button>
-            </form>
+    <script>
+        // Contact form (keep your existing backend)
+        document.getElementById("contact-form").addEventListener("submit", async function(e) {
+            e.preventDefault();
+            const feedback = document.getElementById("form-feedback") || document.createElement("p");
+            feedback.id = "form-feedback";
+            feedback.style.display = "none";
+            document.querySelector("#contact-form").parentNode.appendChild(feedback);
+            
+            const btn = document.querySelector("#contact-form button");
+            btn.disabled = true; btn.innerText = "Sending...";
 
-            <p id="form-feedback" style="display:none; text-align:center; margin-top:15px;"></p>
+            const name = document.getElementById("name").value;
+            const email = document.getElementById("email").value;
+            const message = document.getElementById("message").value;
 
-            <p style="text-align:center; margin-top:15px;">Or WhatsApp: 
-                <a href="https://wa.me/254790283553" target="_blank" style="color:#cdd5d8;">+254790283553</a>
-            </p>
-            <p style="text-align:center;">Book a call: 
-                <a href="https://calendly.com/" target="_blank" style="color:#e7e9eb;">Calendly</a>
-            </p>
-        </div>
-    </div>
-</section>
-</main>
-
-<footer>
-<p>© 2025 Lewis Kipkorir | All Rights Reserved</p>
-</footer>
-
-<!-- Back to top -->
-<div id="back-to-top">&#8679;</div>
-
-<script>
-document.getElementById("contact-form").addEventListener("submit", async function(e) {
-    e.preventDefault();
-
-    const feedback = document.getElementById("form-feedback");
-    const btn = document.querySelector("#contact-form button");
-    btn.disabled = true;
-
-    const name = document.getElementById("name").value;
-    const email = document.getElementById("email").value;
-    const message = document.getElementById("message").value;
-
-    try {
-        const res = await fetch("https://portfolio-backend-phqp.onrender.com/send-email", {
-            method: "POST",
-            headers: { "Content-Type": "application/json" },
-            body: JSON.stringify({ name, email, message })
+            try {
+                const res = await fetch("https://portfolio-backend-phqp.onrender.com/send-email", {
+                    method: "POST", headers: { "Content-Type": "application/json" },
+                    body: JSON.stringify({ name, email, message })
+                });
+                const data = await res.json();
+                
+                feedback.style.color = res.ok ? "#10b981" : "#f87171";
+                feedback.innerText = res.ok ? "✅ Message sent successfully!" : (data.error || "❌ Something went wrong.");
+                feedback.style.display = "block";
+                if(res.ok) document.getElementById("contact-form").reset();
+            } catch(err) {
+                feedback.style.color = "#f87171";
+                feedback.innerText = "❌ Could not connect to backend.";
+                feedback.style.display = "block";
+            } finally {
+                btn.disabled = false; btn.innerText = "Send Message";
+            }
         });
 
-        const data = await res.json();
+        // Enhanced animations
+        const observerOptions = { threshold: 0.1, rootMargin: "0px 0px -50px 0px" };
+        const observer = new IntersectionObserver((entries) => {
+            entries.forEach(entry => {
+                if(entry.isIntersecting) {
+                    entry.target.classList.add('show');
+                    observer.unobserve(entry.target);
+                }
+            });
+        }, observerOptions);
 
-        if(res.ok) {
-            feedback.style.color = "#38bdf8";
-            feedback.innerText = data.message || "✅ Message sent successfully!";
-            document.getElementById("contact-form").reset();
-        } else {
-            feedback.style.color = "#f87171";
-            feedback.innerText = data.error || "❌ Something went wrong.";
-        }
+        document.querySelectorAll('section').forEach(sec => observer.observe(sec));
+        document.querySelectorAll('.timeline-card').forEach(card => observer.observe(card));
 
-        feedback.style.display = "block";
-    } catch(err) {
-        console.error(err);
-        feedback.style.display = "block";
-        feedback.style.color = "#f87171";
-        feedback.innerText = "❌ Could not connect to backend.";
-    } finally {
-        btn.disabled = false;
-    }
-});
+        // Navbar toggle
+        document.querySelector('.nav-toggle').addEventListener('click', () => {
+            document.querySelector('.nav-links').classList.toggle('show');
+        });
+        document.querySelectorAll('.nav-links a').forEach(link => {
+            link.addEventListener('click', () => {
+                document.querySelector('.nav-links').classList.remove('show');
+            });
+        });
 
-// Scroll animations
-const faders = document.querySelectorAll('.fade-left, .fade-right, .timeline-card');
-const appearOptions = { threshold: 0.2, rootMargin: "0px 0px -50px 0px" };
-const appearOnScroll = new IntersectionObserver(function(entries, observer) {
-    entries.forEach(entry => {
-        if(entry.isIntersecting){
-            entry.target.classList.add('show');
-            observer.unobserve(entry.target);
-        }
-    });
-}, appearOptions);
-faders.forEach(fader => appearOnScroll.observe(fader));
-
-// Animate skill bars
-const skillBars = document.querySelectorAll('.skill-bar-fill');
-window.addEventListener('scroll', () => {
-    skillBars.forEach(bar => {
-        const barPos = bar.getBoundingClientRect().top;
-        const screenPos = window.innerHeight;
-        if(barPos < screenPos - 50){
-            bar.style.width = bar.getAttribute('data-width');
-        }
-    });
-});
-
-// Back to top button
-const backToTop = document.getElementById('back-to-top');
-window.addEventListener('scroll', () => {
-    if(window.scrollY > 500){
-        backToTop.style.display = 'block';
-    } else {
-        backToTop.style.display = 'none';
-    }
-});
-backToTop.addEventListener('click', () => {
-    window.scrollTo({top:0, behavior:'smooth'});
-});
-
-// Hamburger menu toggle
-const navToggle = document.querySelector('.nav-toggle');
-const navLinks = document.querySelector('.nav-links');
-navToggle.addEventListener('click', () => {
-    navLinks.classList.toggle('show');
-});
-// Close menu on link click
-navLinks.querySelectorAll('a').forEach(link => {
-    link.addEventListener('click', () => {
-        navLinks.classList.remove('show');
-    });
-});
-</script>
-
+        // Back to top
+        const backToTop = document.getElementById('back-to-top');
+        window.addEventListener('scroll', () => {
+            backToTop.style.display = window.scrollY > 500 ? 'block' : 'none';
+        });
+        backToTop.addEventListener('click', () => window.scrollTo({top:0, behavior:'smooth'}));
+    </script>
 </body>
 </html>
