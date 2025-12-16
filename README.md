@@ -35,7 +35,7 @@ I am a motivated **Cybersecurity Analyst & Software Developer** passionate about
 ---
 ## 📜 Education
 
-- **ALU: Software Engineering** – Hands-on software development, real-world projects, and cybersecurity integration
+- **ALCHE: Software Engineering** – Hands-on software development, real-world projects, and cybersecurity integration
 - **Cybersecurity** – Threat detection, vulnerability assessment, and defensive security operations
 - **KCSE** – Kenya Certificate of Secondary Education
 
