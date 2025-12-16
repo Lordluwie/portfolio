@@ -1,65 +1,62 @@
-# Lewis Kipkorir | Cybersecurity & Software Development Portfolio
+# Lewis Kipkorir | Cybersecurity Analyst & Software Developer
 
 [![Website](https://img.shields.io/badge/Website-Portfolio-blue)](https://lordluwie.github.io/portfolio/)
 [![Email](https://img.shields.io/badge/Email-lewiskipkorir12039@gmail.com-red)](mailto:lewiskipkorir12039@gmail.com)
-[![WhatsApp](https://img.shields.io/badge/WhatsApp-%2B254790283553-success)](https://wa.me/254790283553)
+[![WhatsApp](https://img.shields.io/badge/WhatsApp-+254790283553-success)](https://wa.me/254790283553)
+[![GitHub](https://img.shields.io/badge/GitHub-Lordluwie-black)](https://github.com/Lordluwie)
 
 ---
 
 ## 👋 About Me
-I am a highly motivated **Cybersecurity Enthusiast** and **Software Developer** with a passion for building secure digital environments.  
-I have foundational skills in offensive and defensive security practices, Linux administration, vulnerability assessment, and web application testing.
+I am a motivated **Cybersecurity Analyst & Software Developer** passionate about blue-team operations, secure coding, and hands-on cybersecurity labs that simulate real-world attacks and defenses.  
+**🔍 Currently open to internships, junior roles, and freelance opportunities in SOC operations, threat detection, and secure web development.**
 
 ---
 
 ## 💻 Skills & Expertise
 
-| Skill               | Proficiency |
-|--------------------|------------|
-| Python             | ![85%](https://progress-bar.dev/85/) |
-| JavaScript         | ![75%](https://progress-bar.dev/75/) |
-| Linux Administration | ![80%](https://progress-bar.dev/80/) |
-| Cybersecurity      | ![70%](https://progress-bar.dev/70/) |
-| HTML & CSS         | ![90%](https://progress-bar.dev/90/) |
-| SQL                | ![65%](https://progress-bar.dev/65/) |
-| Git/GitHub         | ![80%](https://progress-bar.dev/80/) |
+| Category | Skills |
+|----------|--------|
+| 🔐 **Cybersecurity** | SOC Monitoring & Incident Response, Threat Detection & Log Analysis, Network Security, Vulnerability Assessment, Linux Security |
+| 💻 **Software Development** | HTML/CSS/JavaScript, Node.js, Python, REST APIs, Secure Coding |
+| 🛠️ **Tools** | Linux, Git/GitHub, VS Code, Nmap, Burp Suite, GitHub Pages |
 
 ---
 
 ## 🏆 Projects
 
-1. **[Cybersecurity Lab Analysis](#)**  
-   Performed vulnerability assessments using Nmap and Metasploit, improving lab security by 40%.  
-
-2. **[Personal Portfolio Website](https://lordluwie.github.io/portfolio/)**  
-   Built using HTML, CSS, and JavaScript to showcase skills, projects, and journey.  
-
-3. **[KCSEHub Tips Blog](#)**  
-   Shared practical study and cybersecurity tips for students and club members in Nairobi.
+| Project | Description | Skills |
+|---------|-------------|--------|
+| **🔹 Cybersecurity Lab Analysis** | Simulated real-world attacks to analyze logs and respond using Linux security tools | Log Analysis, Linux, Threat Detection, SOC |
+| **🔹 Elimu App** | Built web-based educational app focused on usability & performance | HTML/CSS/JS, Web Development |
+| **🔹 Personal Portfolio** | [Live Site](https://lordluwie.github.io/portfolio/) - Responsive portfolio showcasing cybersecurity & dev skills | HTML/CSS/JS, GitHub Pages |
+| **🔹 Mini Android Project** | Basic Android app learning UI design and app lifecycle | Java, Android Basics |
 
 ---
 
 ## 📜 Education
 
-- **KCSE** – Kenya Certificate of Secondary Education  
-- **Self-Study & Labs** – Practical cybersecurity & software development via CTFs and online labs
+- **Software Engineering** – Focused on software development, networking fundamentals, and hands-on cybersecurity labs
+- **KCSE** – Kenya Certificate of Secondary Education
+- **ALX Africa** – Practical software engineering & cybersecurity training
 
 ---
 
 ## 📈 GitHub Stats
 
-![Lewis's GitHub Stats](https://github-readme-stats.vercel.app/api?username=Lordluwie&show_icons=true&theme=dark)
+![Lewis's GitHub Stats](https://github-readme-stats.vercel.app/api?username=Lordluwie&show_icons=true&theme=dark&hide_border=true)
+![Top Languages](https://github-readme-stats.vercel.app/api/top-langs/?username=Lordluwie&layout=compact&theme=dark&hide_border=true)
 
 ---
 
 ## 📞 Contact Me
 
-- Email: [lewiskipkorir12039@gmail.com](mailto:lewiskipkorir12039@gmail.com)  
-- WhatsApp: [https://wa.me/254790283553](https://wa.me/254790283553)  
-- Book a Call: [Calendly](https://calendly.com/)  
+[![Email](https://img.shields.io/badge/Email-lewiskipkorir12039@gmail.com-red)](mailto:lewiskipkorir12039@gmail.com)
+[![WhatsApp](https://img.shields.io/badge/WhatsApp-+254790283553-success)](https://wa.me/254790283553)
+[![Portfolio](https://img.shields.io/badge/Portfolio-Live_Site-blue)](https://lordluwie.github.io/portfolio/)
+
+**Ready to collaborate on cybersecurity projects, internships, or junior SOC roles! 🚀**
 
 ---
 
-## 🌐 Live Portfolio
-Check my portfolio live: [https://lordluwie.github.io/portfolio/](https://lordluwie.github.io/portfolio/)
-
+*© 2025 Lewis Kipkorir | [Portfolio](https://lordluwie.github.io/portfolio/) | Open to Work*
