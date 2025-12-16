@@ -46,7 +46,7 @@
             .nav-toggle { display:block; }
         }
 
-        /* ----------------- Hero (NEW RECRUITER-READY CONTENT) ----------------- */
+        /* ----------------- Hero  ----------------- */
         .hero { min-height: 100vh; display:flex; align-items:center; justify-content:center; text-align:center; padding:40px; position: relative; }
         .hero h1 { font-size:3rem; font-weight:700; margin-bottom:10px; }
         .hero span { color:#ff6b6b; }
@@ -141,7 +141,7 @@
     </header>
 
     <main>
-        <!-- 🔥 HERO SECTION (RECRUITER-READY) -->
+        <!-- 🔥 HERO SECTION -->
         <div class="hero">
             <div>
                 <h1>Hi, I'm <span>Lewis Kipkorir</span></h1>
@@ -154,7 +154,7 @@
             </div>
         </div>
 
-        <!-- About Me (NEW CONTENT) -->
+        <!-- About Me-->
         <section id="about" class="show">
             <h2 class="section-title">About Me</h2>
             <div class="card" style="max-width:800px; margin:auto;">
@@ -164,7 +164,7 @@
             </div>
         </section>
 
-        <!-- Skills (NEW STRUCTURED CONTENT) -->
+        <!-- Skills-->
         <section id="skills">
             <h2 class="section-title">Skills</h2>
             <div class="skills-grid">
@@ -208,18 +208,21 @@
             </div>
         </section>
 
-        <!-- Education (NEW CONTENT) -->
+        <!-- Education -->
         <section id="education">
             <h2 class="section-title">Education</h2>
             <div class="cards">
                 <div class="card">
-                    <h3>Information Technology & Cybersecurity Studies</h3>
-                    <p>Focused on software development, networking fundamentals, and hands-on cybersecurity labs involving real-world attack and defense scenarios.</p>
-                </div>
+                    <h3>Software Engineering</h3>
+<p>Focused on software development, networking fundamentals, and hands-on cybersecurity labs involving real-world attack and defense scenarios.</p>
+           <p>      <h3> Cyber security</h3>
+<p>Gained foundational knowledge in cybersecurity principles, threat analysis, and SOC operations through practical labs
+               </p>
+</div>
             </div>
         </section>
 
-        <!-- Journey (UPDATED) -->
+        <!-- Journey -->
         <section id="journey">
             <h2 class="section-title">Journey</h2>
             <div class="timeline">
@@ -238,7 +241,7 @@
             </div>
         </section>
 
-        <!-- Projects (NEW CONTENT) -->
+        <!-- Projects-->
         <section id="projects">
             <h2 class="section-title">Projects</h2>
             <div class="cards">
@@ -269,7 +272,7 @@
             </div>
         </section>
 
-        <!-- Testimonials (NEW CONTENT) -->
+        <!-- Testimonials-->
         <section id="testimonials">
             <h2 class="section-title">Testimonials</h2>
             <div class="cards">
@@ -279,7 +282,7 @@
             </div>
         </section>
 
-        <!-- Blog (NEW CONTENT) -->
+        <!-- Blog-->
         <section id="blog">
             <h2 class="section-title">Blog</h2>
             <div class="card" style="max-width:700px; margin:auto;">
@@ -290,7 +293,7 @@
             </div>
         </section>
 
-        <!-- Contact (UPDATED) -->
+        <!-- Contact -->
         <section id="contact">
             <h2 class="section-title">Contact Me</h2>
             <div class="cards">
@@ -325,7 +328,7 @@
     <div id="back-to-top">↑</div>
 
     <script>
-        // Contact form (keep your existing backend)
+        // Contact form
         document.getElementById("contact-form").addEventListener("submit", async function(e) {
             e.preventDefault();
             const feedback = document.getElementById("form-feedback") || document.createElement("p");
@@ -360,7 +363,7 @@
             }
         });
 
-        // Enhanced animations
+        // Animations
         const observerOptions = { threshold: 0.1, rootMargin: "0px 0px -50px 0px" };
         const observer = new IntersectionObserver((entries) => {
             entries.forEach(entry => {
