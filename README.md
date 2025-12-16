@@ -33,9 +33,9 @@ I am a motivated **Cybersecurity Analyst & Software Developer** passionate about
 | **🔹 Mini Android Project** | Basic Android app learning UI design and app lifecycle | Java, Android Basics |
 
 ---
-
 ## 📜 Education
 
+- **ALU: Software Engineering** – Hands-on software development, cybersecurity labs, and real-world projects
 - **Software Engineering** – Focused on software development, networking fundamentals, and hands-on cybersecurity labs
 - **KCSE** – Kenya Certificate of Secondary Education
 - **ALX Africa** – Practical software engineering & cybersecurity training
