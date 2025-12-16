@@ -31,21 +31,21 @@ header, main, footer { width: 100%; }
 
 /* ----------------- Navbar ----------------- */
 nav {
-    position: fixed; top:0; width:100%; background: rgba(0, 0, 2, 0.884); padding:15px 30px; z-index:100;
+     position: fixed; top:0; width:100%; background: #014e0500;; padding:15px 30px; z-index:100;
 }
 .nav-container { display:flex; justify-content:space-between; align-items:center; max-width:1100px; margin:auto; }
 .nav-links { display:flex; gap:15px; }
-.nav-links a { color:#010611; text-decoration:none; font-weight:600; transition:color 0.3s; }
-.nav-links a:hover { color:#000a0e; }
+.nav-links a { color:#060f24; text-decoration:none; font-weight:600; transition:color 0.3s; }
+.nav-links a:hover { color:#02020a; }
 
-.nav-toggle { display:none; font-size:2rem; background:none; border:none; color:#010611; cursor:pointer; }
+.nav-toggle { display:none; font-size:2rem; background:none; border:none; color:#e3e4f1; cursor:pointer; }
 
 /* Mobile menu */
 @media screen and (max-width:768px){
     .nav-links { 
         display:none; 
         flex-direction:column; 
-        background: rgba(233, 235, 238, 0.95); 
+        background: rgba(235, 238, 241, 0.95); 
         position:absolute; 
         top:60px; 
         right:0; 
@@ -83,7 +83,7 @@ ul { list-style:square; padding-left:20px; max-width:500px; margin:auto; color:#
 /* ----------------- Skills ----------------- */
 .skill { margin-bottom:20px; }
 .skill-name { font-weight:600; margin-bottom:5px; }
-.skill-bar { background:rgba(6, 40, 231, 0.7); border-radius:12px; overflow:hidden; }
+.skill-bar { background:#0628e7b3; border-radius:12px; overflow:hidden; }
 .skill-bar-fill { height:15px; width:0; background:#f5f6f7; border-radius:12px; transition: width 1.5s ease-in-out; }
 
 /* ----------------- Timeline ----------------- */
@@ -101,7 +101,7 @@ form input:focus, form textarea:focus { outline:none; transform:scale(1.02); bac
 form button.btn { padding:15px; font-size:1.1rem; font-weight:700; border-radius:12px; }
 
 /* ----------------- Footer ----------------- */
-footer { text-align:center; padding:30px; background:#f8f3f3; color:#0f50ac; }
+footer { text-align:center; padding:30px; background:#0e0468; color:#f1f2f3; }
 
 /* ----------------- Back to top ----------------- */
 #back-to-top { position:fixed; bottom:20px; right:20px; background:#b63636; color:#eeeef1; padding:12px 15px; border-radius:50%; font-weight:700; display:none; cursor:pointer; z-index:1000; transition: transform 0.2s; }
