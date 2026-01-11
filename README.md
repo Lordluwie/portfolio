@@ -49,7 +49,6 @@ I am a motivated **Cybersecurity Analyst & Software Developer** passionate about
 - SOC engineering & advanced threat hunting  
 - Secure full-stack application development  
 - Open-source security contributions  
-- Become a professional racing driver and compete in series such as **F4 India**
 
 ## 📈 GitHub Stats
 
