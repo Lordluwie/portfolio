@@ -8,8 +8,9 @@
 ---
 
 ## 👋 About Me
-I am a motivated **Cybersecurity Analyst & Software Developer** passionate about blue-team operations, secure coding, and hands-on cybersecurity labs that simulate real-world attacks and defenses.  
-**🔍 Currently open to internships, junior roles, and freelance opportunities in SOC operations, threat detection, and secure web development.**
+I am a **Cybersecurity Analyst & Software Developer** with experience across security operations and software development. My work focuses on threat detection, log analysis, incident response, secure coding, and practical web projects.
+
+**🔍 Open to professional opportunities, freelance engagements, and collaborations in cybersecurity and software development.**
 
 ---
 
@@ -30,7 +31,7 @@ I am a motivated **Cybersecurity Analyst & Software Developer** passionate about
 | **🔹 Cybersecurity Lab Analysis** | Simulated real-world attacks to analyze logs and respond using Linux security tools | Log Analysis, Linux, Threat Detection, SOC |
 | **🔹 Elimu App** | Built web-based educational app focused on usability & performance | HTML/CSS/JS, Web Development |
 | **🔹 Personal Portfolio** | [Live Site](https://lordluwie.github.io/portfolio/) - Responsive portfolio showcasing cybersecurity & dev skills | HTML/CSS/JS, GitHub Pages |
-| **🔹 Mini Android Project** | Basic Android app learning UI design and app lifecycle | Java, Android Basics |
+| **🔹 Mini Android Project** | Basic Android application demonstrating UI design and app lifecycle fundamentals | Java, Android |
 
 ---
 ## 📜 Education
@@ -41,13 +42,14 @@ I am a motivated **Cybersecurity Analyst & Software Developer** passionate about
 
 ## 👨‍💼 Experience
 
+- **Lead Software Developer** – Leading software development for a startup, managing technical direction, and building applications from concept to deployment
 - **SOC Analyst** – Security monitoring, threat detection, log analysis, and incident response
 
-## 🎯 Future Goals
+## 🎯 Professional Focus
 
-- Android development with Kotlin  
-- SOC engineering & advanced threat hunting  
-- Secure full-stack application development  
+- SOC engineering and advanced threat hunting
+- Kotlin-based Android development
+- Secure full-stack application development
 - Open-source security contributions  
 
 ## 📈 GitHub Stats
@@ -63,7 +65,7 @@ I am a motivated **Cybersecurity Analyst & Software Developer** passionate about
 [![WhatsApp](https://img.shields.io/badge/WhatsApp-+254790283553-success)](https://wa.me/254790283553)
 [![Portfolio](https://img.shields.io/badge/Portfolio-Live_Site-blue)](https://lordluwie.github.io/portfolio/)
 
-**Ready to collaborate on cybersecurity projects, internships, or junior SOC roles! 🚀**
+**Available for cybersecurity and software development opportunities, projects, and collaborations.**
 
 ---
 
