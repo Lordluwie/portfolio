@@ -716,10 +716,6 @@
     <header>
         <nav aria-label="Main navigation">
             <div class="nav-container">
-                <a class="brand" href="#home" aria-label="Lewis Kipkorir, home">
-                    <span class="brand-mark" aria-hidden="true">LK</span>
-                    <span>LEWIS KIPKORIR</span>
-                </a>
                 <button class="nav-toggle" type="button" aria-label="Toggle navigation menu" aria-expanded="false" aria-controls="primary-navigation">☰</button>
                 <ul class="nav-links" id="primary-navigation">
                     <li><a href="#about">About</a></li>
@@ -736,10 +732,10 @@
         <section class="hero" id="home" aria-labelledby="hero-title">
             <div class="hero-layout">
               <div class="hero-content">
-                <p class="eyebrow">Cybersecurity · Software Development</p>
-                <h1 id="hero-title">Hi, I'm <span>Lewis Kipkorir</span></h1>
+                <p class="eyebrow">Cybersecurity · Security Operations · Software Development</p>
+                <h1 id="hero-title"><span>Lewis Kipkorir</span></h1>
                 <p><strong>Cybersecurity Analyst &amp; Software Developer</strong></p>
-                <p>I bring experience in security operations and software development, with a focus on threat detection, incident response, and building secure, practical applications.</p>
+                <p>Experienced in security operations and software development, I focus on identifying threats, responding to incidents, and building secure, reliable applications.</p>
                 <p><span class="open-to-work">Open to professional opportunities and collaborations.</span></p>
                 <a href="#projects" class="btn">Explore projects <span aria-hidden="true">↗</span></a>
                 <a href="#contact" class="btn btn-secondary">Get in touch</a>
@@ -786,9 +782,9 @@
         <section id="about" aria-labelledby="about-title">
             <h2 class="section-title" id="about-title">About Me</h2>
             <div class="card prose-card">
-                <p>I am a cybersecurity analyst and software developer focused on protecting systems, investigating suspicious activity, and delivering secure applications.</p>
-                <p><strong>My experience spans:</strong> SOC monitoring, threat detection, log analysis, incident response, and software development. I work with Linux environments and apply security-minded practices to practical projects.</p>
-                <p>I am open to cybersecurity, SOC, and software development opportunities where I can contribute to reliable operations and secure products.</p>
+                <p>I am a cybersecurity analyst and software developer with experience supporting security operations and delivering practical software projects. My work combines a methodical approach to investigating activity with a focus on building dependable, secure applications.</p>
+                <p><strong>Areas of experience include:</strong> SOC monitoring, threat detection, log analysis, incident response, Linux security, and web application development. I value clear communication, thoughtful problem-solving, and security-minded engineering.</p>
+                <p>I welcome opportunities to contribute to security operations, strengthen digital defenses, and develop software that solves real-world problems.</p>
             </div>
         </section>
 
@@ -1144,7 +1140,6 @@
         navLinks.querySelectorAll("a").forEach(link => {
             link.addEventListener("click", closeNavigation);
         });
-        document.querySelector(".brand").addEventListener("click", closeNavigation);
         document.addEventListener("click", event => {
             if (!nav.contains(event.target)) closeNavigation();
         });
