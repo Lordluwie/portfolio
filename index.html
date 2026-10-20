@@ -49,6 +49,7 @@
         a { color: var(--accent); }
         a:hover { color: #99f6e4; }
         a:focus-visible,
+        summary:focus-visible,
         button:focus-visible,
         input:focus-visible,
         textarea:focus-visible {
@@ -473,6 +474,151 @@
         form button.btn:disabled { cursor: wait; opacity: 0.7; }
         #form-feedback { margin-top: 14px; }
 
+        .terminal-form label.visually-hidden {
+            position: absolute;
+            width: 1px;
+            height: 1px;
+            margin: 0;
+            padding: 0;
+            border: 0;
+            overflow: hidden;
+            clip: rect(0, 0, 0, 0);
+            clip-path: inset(50%);
+            white-space: nowrap;
+        }
+        .terminal {
+            max-width: 640px;
+            margin-top: 24px;
+        }
+        .terminal > summary {
+            display: inline-flex;
+            min-height: 44px;
+            align-items: center;
+            gap: 9px;
+            color: var(--accent);
+            font-size: 0.9rem;
+            font-weight: 700;
+            cursor: pointer;
+        }
+        .terminal-prompt-mark {
+            color: var(--text);
+            font-family: ui-monospace, SFMono-Regular, Consolas, monospace;
+        }
+        .terminal-panel {
+            overflow: hidden;
+            border: 1px solid var(--border);
+            border-radius: 12px;
+            background: #081522;
+            box-shadow: 0 14px 36px rgba(0, 0, 0, 0.2);
+        }
+        .terminal-chrome {
+            display: flex;
+            min-height: 40px;
+            align-items: center;
+            gap: 10px;
+            padding: 0 14px;
+            border-bottom: 1px solid var(--border);
+            background: rgba(13, 27, 43, 0.9);
+            color: var(--muted);
+            font-family: ui-monospace, SFMono-Regular, Consolas, monospace;
+            font-size: 0.76rem;
+        }
+        .terminal-dots { display: inline-flex; gap: 5px; }
+        .terminal-dots span {
+            width: 8px;
+            height: 8px;
+            border-radius: 50%;
+            background: var(--accent);
+            opacity: 0.75;
+        }
+        .terminal-dots span:first-child { background: #fca5a5; }
+        .terminal-dots span:nth-child(2) { background: #fcd34d; }
+        .terminal-body { padding: 14px; }
+        .terminal-help {
+            margin: 0 0 10px;
+            color: var(--muted);
+            font-size: 0.8rem;
+            line-height: 1.5;
+        }
+        .terminal-help code,
+        .terminal-response code {
+            color: var(--accent);
+            font-family: ui-monospace, SFMono-Regular, Consolas, monospace;
+        }
+        .terminal-output {
+            min-height: 54px;
+            max-height: 156px;
+            overflow-y: auto;
+            margin-bottom: 12px;
+            scrollbar-color: var(--border) transparent;
+        }
+        .terminal-output p {
+            margin: 0 0 7px;
+            color: var(--muted);
+            font-family: ui-monospace, SFMono-Regular, Consolas, monospace;
+            font-size: 0.82rem;
+            line-height: 1.55;
+            overflow-wrap: anywhere;
+        }
+        .terminal-output p:last-child { margin-bottom: 0; }
+        .terminal-command { color: var(--accent); }
+        .terminal-response a { margin-left: 5px; }
+        .terminal-form {
+            display: grid;
+            grid-template-columns: auto minmax(0, 1fr) auto;
+            align-items: center;
+            gap: 8px;
+        }
+        .terminal-form .terminal-prompt {
+            color: var(--accent);
+            font-family: ui-monospace, SFMono-Regular, Consolas, monospace;
+            font-size: 0.84rem;
+        }
+        .terminal-form input#terminal-command {
+            min-width: 0;
+            min-height: 44px;
+            padding: 9px 10px;
+            border-color: var(--border);
+            border-radius: 7px;
+            background: rgba(7, 17, 31, 0.72);
+            font-family: ui-monospace, SFMono-Regular, Consolas, monospace;
+            font-size: 0.88rem;
+        }
+        .terminal-run {
+            min-height: 44px;
+            padding: 8px 13px;
+            border: 1px solid var(--accent);
+            border-radius: 7px;
+            background: rgba(94, 234, 212, 0.1);
+            color: var(--accent);
+            font: inherit;
+            font-size: 0.84rem;
+            font-weight: 700;
+            cursor: pointer;
+        }
+        .terminal-run:hover { background: rgba(94, 234, 212, 0.18); }
+        .terminal-shortcuts {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 7px;
+            margin-top: 10px;
+        }
+        .terminal-shortcuts button {
+            min-height: 44px;
+            padding: 6px 10px;
+            border: 1px solid var(--border);
+            border-radius: 7px;
+            background: transparent;
+            color: var(--muted);
+            font-family: ui-monospace, SFMono-Regular, Consolas, monospace;
+            font-size: 0.78rem;
+            cursor: pointer;
+        }
+        .terminal-shortcuts button:hover {
+            border-color: var(--accent);
+            color: var(--accent);
+        }
+
         footer {
             padding: 32px 20px;
             border-top: 1px solid var(--border);
@@ -546,6 +692,8 @@
             .section-title { margin-bottom: 24px; }
             .card { padding: 22px; }
             .project-grid { grid-template-columns: minmax(0, 1fr); }
+            .terminal-form { grid-template-columns: minmax(0, 1fr) auto; }
+            .terminal-form .terminal-prompt { grid-column: 1 / -1; }
             #back-to-top { right: 16px; bottom: 16px; }
         }
 
@@ -595,6 +743,34 @@
                 <p><span class="open-to-work">Currently seeking internships and junior roles.</span></p>
                 <a href="#projects" class="btn">Explore projects <span aria-hidden="true">↗</span></a>
                 <a href="#contact" class="btn btn-secondary">Get in touch</a>
+                <details class="terminal">
+                    <summary aria-controls="terminal-panel"><span class="terminal-prompt-mark" aria-hidden="true">&gt;_</span> Try the interactive terminal</summary>
+                    <div class="terminal-panel" id="terminal-panel">
+                        <div class="terminal-chrome" aria-hidden="true">
+                            <span class="terminal-dots"><span></span><span></span><span></span></span>
+                            <span>lewis@portfolio:~</span>
+                        </div>
+                        <div class="terminal-body">
+                            <p class="terminal-help" id="terminal-help">Safe, local commands: <code>help</code>, <code>about</code>, <code>skills</code>, <code>projects</code>, <code>contact</code>.</p>
+                            <div class="terminal-output" id="terminal-output" role="log" aria-live="polite" aria-relevant="additions">
+                                <p class="terminal-response">Welcome. Type <code>help</code> to see what you can explore.</p>
+                            </div>
+                            <form class="terminal-form" id="terminal-form">
+                                <span class="terminal-prompt" aria-hidden="true">visitor@portfolio:~$</span>
+                                <label for="terminal-command" class="visually-hidden">Enter a terminal command</label>
+                                <input id="terminal-command" name="command" type="text" placeholder="Type a command..." autocomplete="off" autocapitalize="none" spellcheck="false" aria-describedby="terminal-help" required>
+                                <button class="terminal-run" type="submit">Run</button>
+                            </form>
+                            <div class="terminal-shortcuts" aria-label="Command shortcuts">
+                                <button type="button" data-terminal-command="help">help</button>
+                                <button type="button" data-terminal-command="about">about</button>
+                                <button type="button" data-terminal-command="skills">skills</button>
+                                <button type="button" data-terminal-command="projects">projects</button>
+                                <button type="button" data-terminal-command="contact">contact</button>
+                            </div>
+                        </div>
+                    </div>
+                </details>
               </div>
               <aside class="hero-aside" aria-label="Areas of interest">
                 <p class="eyebrow">Current focus</p>
@@ -659,60 +835,6 @@
             </div>
         </section>
 
-<<<<<<< HEAD
-        <!-- Education -->
-      <section id="education">
-    <h2 class="section-title">Education</h2>
-    <div class="cards">
-        <div class="card">
-            <h3>🔹 Computer Science</h3>
-            <p>Building a strong foundation in programming, algorithms, data structures, computer systems, and software development.</p>
-
-            <h3>🔹 Software Engineering</h3>
-            <p>Hands-on software development, real-world projects, and cybersecurity integration.</p>
-        </div>
-        <div class="card">
-            <h3>🔹 Cybersecurity</h3>
-            <p>Practical training in threat detection, vulnerability assessment, and defensive security operations.</p>
-        </div>
-        <div class="card">
-            <h3>🔹 KCSE</h3>
-            <p>Kenya Certificate of Secondary Education.</p>
-        </div>
-    </div>
-</section>
-<!-- Experience -->
-<section id="experience">
-    <h2 class="section-title">Experience</h2>
-    <div class="cards">
-        <div class="card">
-            <h3>🔹 Lead Software Developer </h3>
-            <p>Leading software development for a startup, spearheading innovative solutions, managing technical strategy, and building scalable applications from concept to deployment.</p>
-        </div>
-        <div class="card">
-            <h3>🔹 SOC Analyst</h3>
-            <p>Security monitoring, threat detection, log analysis, and incident response in live environments using Linux security tools.</p>
-        </div>
-    </div>
-</section>
-
-        <!-- Journey -->
-        <section id="journey">
-            <h2 class="section-title">Journey</h2>
-            <div class="timeline">
-                <div class="timeline-card">
-                    <h3>🔹 Early Curiosity</h3>
-                    <p>My journey into technology began with a strong curiosity about how systems work and how they can be protected from attacks.</p>
-                </div>
-                <div class="timeline-card">
-                    <h3>🔹 Skill Development</h3>
-                    <p>Through continuous learning, lab simulations, and personal projects, I developed practical experience in analyzing threats and building applications.</p>
-                </div>
-                <div class="timeline-card">
-                    <h3>🔹 Current Focus</h3>
-                    <p>Mastering SOC operations, threat hunting, secure coding, and Linux environments for real-world impact.</p>
-                </div>
-=======
         <section id="education">
             <h2 class="section-title">Education &amp; Training</h2>
             <div class="cards">
@@ -746,7 +868,6 @@
                     <h3>SOC Analyst</h3>
                     <p>Security monitoring, threat detection, log analysis, and incident response in live environments using Linux security tools.</p>
                 </article>
->>>>>>> f2926e7 (Update Computer Science section)
             </div>
         </section>
 
@@ -823,11 +944,7 @@
 <!-- Future Goals -->
 <section id="goals">
     <h2 class="section-title">Future Goals</h2>
-<<<<<<< HEAD
-    <div class="card" style="max-width:700px; margin:auto;">
-=======
     <div class="card narrow-card">
->>>>>>> f2926e7 (Update Computer Science section)
         <p>Advancing into <strong>Android development with Kotlin</strong>, <strong>SOC engineering</strong>, and building secure full-stack applications.</p>
     </div>
 </section>
@@ -884,6 +1001,80 @@
         const formFeedback = document.getElementById("form-feedback");
         const submitButton = contactForm.querySelector('button[type="submit"]');
         const submitLabel = submitButton.textContent;
+
+        const terminalForm = document.getElementById("terminal-form");
+        const terminalInput = document.getElementById("terminal-command");
+        const terminalOutput = document.getElementById("terminal-output");
+        const terminalCommands = {
+            help: {
+                message: "Available commands: help, about, skills, projects, contact."
+            },
+            about: {
+                message: "Lewis is a cybersecurity and software development student focused on blue-team operations and secure coding.",
+                href: "#about",
+                linkText: "Read more about me"
+            },
+            skills: {
+                message: "SOC monitoring, threat detection, log analysis, Linux security, HTML, CSS, JavaScript, Node.js, and Python.",
+                href: "#skills",
+                linkText: "View all skills"
+            },
+            projects: {
+                message: "Explore cybersecurity labs, the Elimu web app, an Android learning project, and this portfolio.",
+                href: "#projects",
+                linkText: "Browse projects"
+            },
+            contact: {
+                message: "Lewis is open to internships, junior roles, freelance work, and collaborations.",
+                href: "#contact",
+                linkText: "Go to contact"
+            }
+        };
+        const runTerminalCommand = command => {
+            const normalizedCommand = command.trim().toLowerCase();
+            if (!normalizedCommand) return;
+
+            const entry = document.createElement("p");
+            entry.className = "terminal-response";
+            const commandEcho = document.createElement("span");
+            commandEcho.className = "terminal-command";
+            commandEcho.textContent = `visitor@portfolio:~$ ${command.trim()}`;
+            entry.append(commandEcho);
+
+            const response = Object.prototype.hasOwnProperty.call(terminalCommands, normalizedCommand)
+                ? terminalCommands[normalizedCommand]
+                : null;
+            const responseText = document.createElement("span");
+            responseText.textContent = response ? ` ${response.message}` : " Unknown command. Type help to see the available commands.";
+            entry.append(responseText);
+
+            if (response && response.href) {
+                const link = document.createElement("a");
+                link.href = response.href;
+                link.textContent = response.linkText;
+                entry.append(link);
+            }
+
+            terminalOutput.append(entry);
+            while (terminalOutput.children.length > 8) {
+                terminalOutput.firstElementChild.remove();
+            }
+            terminalOutput.scrollTop = terminalOutput.scrollHeight;
+        };
+
+        terminalForm.addEventListener("submit", event => {
+            event.preventDefault();
+            runTerminalCommand(terminalInput.value);
+            terminalInput.value = "";
+        });
+        document.querySelectorAll("[data-terminal-command]").forEach(button => {
+            button.addEventListener("click", () => {
+                const command = button.dataset.terminalCommand;
+                terminalInput.value = command;
+                runTerminalCommand(command);
+                terminalInput.value = "";
+            });
+        });
 
         contactForm.addEventListener("submit", async event => {
             event.preventDefault();
