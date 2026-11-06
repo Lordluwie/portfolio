@@ -1,0 +1,494 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="theme-color" content="#f8f3ef">
+  <meta name="description" content="A thoughtful little adventure, made just for you.">
+  <title>A Little Adventure</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=DM+Sans:wght@400;500;600;700&family=Playfair+Display:wght@500;600;700&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="Elsie.css">
+</head>
+<body>
+  <div class="background-hearts" id="backgroundHearts" aria-hidden="true"></div>
+  <div class="choice-celebration" id="choiceCelebration" aria-hidden="true"></div>
+
+  <main class="page">
+    <header class="journey-header">
+      <a class="wordmark" id="homeLink" href="#start" aria-label="Restart the adventure">A LITTLE ADVENTURE <span id="nameGreeting">JUST FOR YOU</span></a>
+      <button class="music-toggle" id="musicToggle" type="button" aria-pressed="false">
+        <span aria-hidden="true">♫</span> <span id="musicLabel">Play soft music</span>
+      </button>
+    </header>
+
+    <nav class="journey-progress" aria-label="Your journey">
+      <span class="progress-track" aria-hidden="true"><span class="progress-fill" id="progressFill"></span></span>
+      <ol>
+        <li class="progress-step is-current" data-step="0" aria-current="step"><span>01</span><span class="step-label">A little question</span></li>
+        <li class="progress-step" data-step="1"><span>02</span><span class="step-label">The date</span></li>
+        <li class="progress-step" data-step="2"><span>03</span><span class="step-label">Make it official</span></li>
+        <li class="progress-step" data-step="3"><span>04</span><span class="step-label">Dream getaway</span></li>
+        <li class="progress-step" data-step="4"><span>05</span><span class="step-label">Shillong chapter</span></li>
+        <li class="progress-step" data-step="5"><span>06</span><span class="step-label">Birthday ideas</span></li>
+        <li class="progress-step" data-step="6"><span>07</span><span class="step-label">A little quiz</span></li>
+        <li class="progress-step" data-step="7"><span>08</span><span class="step-label">A secret note</span></li>
+        <li class="progress-step" data-step="8"><span>09</span><span class="step-label">A little note</span></li>
+      </ol>
+    </nav>
+
+    <section class="screen is-active" id="start" aria-labelledby="start-title">
+      <div class="question-card">
+        <div class="top-label"><span class="tiny-heart" aria-hidden="true">♥</span> A VERY IMPORTANT QUESTION</div>
+        <div class="illustration" aria-hidden="true">
+          <div class="heart-orbit orbit-one"></div>
+          <div class="heart-orbit orbit-two"></div>
+          <div class="main-heart">♥</div>
+          <span class="floating-heart heart-one">♥</span>
+          <span class="floating-heart heart-two">♥</span>
+          <span class="floating-heart heart-three">♥</span>
+        </div>
+        <p class="eyebrow">To my favourite person</p>
+        <h1 id="start-title" tabindex="-1">Do you<br><span>miss me?</span></h1>
+        <p class="subtitle">A small question from someone who's hoping the answer is yes.</p>
+        <div class="button-zone" id="missButtonZone">
+          <button class="choice-button yes-button" id="missYes" type="button">YES, obviously <span aria-hidden="true">♥</span></button>
+          <button class="choice-button no-button" id="missNo" type="button">No</button>
+        </div>
+        <p class="hint" id="missHint" aria-live="polite">Choose wisely. I'm only a little emotionally invested.</p>
+        <p class="footer-note">MADE WITH A LITTLE TOO MUCH LOVE <span aria-hidden="true">♥</span></p>
+      </div>
+    </section>
+
+    <section class="screen" id="date" aria-labelledby="date-title" hidden>
+      <div class="question-card date-card" id="dateQuestion">
+        <p class="eyebrow">A hopeful invitation</p>
+        <h1 id="date-title" tabindex="-1">Well, since we're already <span>missing each other...</span></h1>
+        <p class="main-question">Would you let me take you on a date?</p>
+        <div class="response-options">
+          <button class="primary-button" id="dateYes" type="button">YES, I'd love that <span aria-hidden="true">♥</span></button>
+          <button class="secondary-button" id="tellMeMore" type="button">Tell me more <span aria-hidden="true">👀</span></button>
+        </div>
+        <div class="response-reveal" id="dateResponse" aria-live="polite" hidden>
+          <p id="dateResponseMessage"></p>
+          <button class="primary-button" id="continueToRelationship" type="button">Continue <span aria-hidden="true">→</span></button>
+        </div>
+        <p class="footer-note">GOOD COMPANY, NO EXPECTATIONS <span aria-hidden="true">♥</span></p>
+      </div>
+    </section>
+
+    <section class="screen relationship-screen" id="relationship" aria-labelledby="relationship-title" hidden>
+      <div class="question-card relationship-card">
+        <div class="relationship-ornament" aria-hidden="true"><span>✦</span></div>
+        <p class="eyebrow">Okay, one slightly bigger question...</p>
+        <h1 id="relationship-title" tabindex="-1">I'd really like to <span>make this official.</span></h1>
+        <p class="main-question">Would you be my girlfriend?</p>
+        <p class="subtitle">I like what we have, and I'd love to see where this goes with you. No pressure. I just wanted to ask you properly.</p>
+        <div class="relationship-button-zone" id="relationshipButtonZone">
+          <button class="primary-button official-yes-button" id="officialYes" type="button">YES <span aria-hidden="true">♥</span></button>
+          <button class="secondary-button official-no-button" id="officialNo" type="button">NO</button>
+        </div>
+        <div class="official-no-hint" id="officialNoHint" role="status" aria-live="polite" aria-atomic="true" hidden></div>
+        <button class="secondary-button official-time-button" id="officialTime" type="button">I'd like some time — continue honestly</button>
+        <div class="relationship-outcome" id="relationshipOutcome" aria-live="polite" hidden>
+          <p class="eyebrow" id="relationshipOutcomeLabel"></p>
+          <p class="relationship-outcome-message" id="relationshipOutcomeMessage"></p>
+          <button class="primary-button" id="continueToGetaway" type="button">Continue <span aria-hidden="true">→</span></button>
+        </div>
+        <p class="footer-note">WHATEVER YOUR ANSWER, THANK YOU FOR HEARING ME <span aria-hidden="true">♥</span></p>
+      </div>
+    </section>
+
+    <section class="screen travel-screen" id="getaway" aria-labelledby="getaway-title" hidden>
+      <header class="travel-heading">
+        <p class="eyebrow">A little daydream</p>
+        <h1 id="getaway-title" tabindex="-1">Now, let's <span>dream a little...</span></h1>
+        <p class="main-question">If we could escape together for a few days, where would you choose?</p>
+      </header>
+      <div class="destination-grid">
+        <article class="destination-card">
+          <div class="destination-photo photo-bali">
+            <img src="https://images.unsplash.com/photo-1537996194471-e657df975ab4?auto=format&amp;fit=crop&amp;w=1000&amp;q=85" alt="Bali's tropical coastline at golden hour" loading="lazy">
+            <span class="photo-index">01 / ISLAND DAYS</span>
+          </div>
+          <div class="destination-copy">
+            <p class="destination-region">INDONESIA · THE ISLAND OF THE GODS</p>
+            <h2>Bali</h2>
+            <p>Golden-hour skies, a tucked-away villa, warm ocean air and a dinner that lasts all evening.</p>
+            <button class="destination-button" type="button" data-destination="Bali">Take me here <span aria-hidden="true">♥</span></button>
+          </div>
+        </article>
+        <article class="destination-card">
+          <div class="destination-photo photo-maldives">
+            <img src="https://images.unsplash.com/photo-1514282401047-d79a71a590e8?auto=format&amp;fit=crop&amp;w=1000&amp;q=85" alt="Overwater villas above the turquoise sea in the Maldives" loading="lazy">
+            <span class="photo-index">02 / SEA &amp; STILLNESS</span>
+          </div>
+          <div class="destination-copy">
+            <p class="destination-region">INDIAN OCEAN · A WORLD APART</p>
+            <h2>Maldives</h2>
+            <p>Quiet mornings over turquoise water, barefoot afternoons and a sunset worth staying up for.</p>
+            <button class="destination-button" type="button" data-destination="Maldives">Take me here <span aria-hidden="true">♥</span></button>
+          </div>
+        </article>
+        <article class="destination-card">
+          <div class="destination-photo photo-malaysia">
+            <img src="https://images.unsplash.com/photo-1596422846543-75c6fc197f07?auto=format&amp;fit=crop&amp;w=1000&amp;q=85" alt="Kuala Lumpur's lively city skyline in Malaysia" loading="lazy">
+            <span class="photo-index">03 / A LITTLE OF EVERYTHING</span>
+          </div>
+          <div class="destination-copy">
+            <p class="destination-region">MALAYSIA · CITY TO COAST</p>
+            <h2>Malaysia</h2>
+            <p>Temple gardens, island breezes, bustling night markets and something delicious around every corner.</p>
+            <button class="destination-button" type="button" data-destination="Malaysia">Take me here <span aria-hidden="true">♥</span></button>
+          </div>
+        </article>
+        <article class="destination-card">
+          <div class="destination-photo photo-singapore">
+            <img src="https://images.unsplash.com/photo-1525625293386-3f8f99389edd?auto=format&amp;fit=crop&amp;w=1000&amp;q=85" alt="Singapore's illuminated skyline at night" loading="lazy">
+            <span class="photo-index">04 / CITY LIGHTS</span>
+          </div>
+          <div class="destination-copy">
+            <p class="destination-region">SINGAPORE · THE CITY IN BLOOM</p>
+            <h2>Singapore</h2>
+            <p>Skyline views, lush gardens, a beautiful hotel and late-night food worth finding together.</p>
+            <button class="destination-button" type="button" data-destination="Singapore">Take me here <span aria-hidden="true">♥</span></button>
+          </div>
+        </article>
+      </div>
+      <div class="destination-result" id="destinationResult" aria-live="polite" hidden>
+        <p class="eyebrow">A lovely choice</p>
+        <p class="destination-message" id="destinationMessage"></p>
+        <button class="primary-button" id="toFinal" type="button">One last thing <span aria-hidden="true">→</span></button>
+      </div>
+      <p class="footer-note travel-footer">SOMEWHERE BEAUTIFUL, JUST A DAYDREAM FOR NOW <span aria-hidden="true">♥</span></p>
+    </section>
+
+    <section class="screen shillong-screen" id="shillong" aria-labelledby="shillong-title" hidden>
+      <header class="shillong-hero">
+        <img class="shillong-hero-image" src="https://images.unsplash.com/photo-1522383225653-ed111181a951?auto=format&amp;fit=crop&amp;w=1800&amp;q=90" alt="Soft pink cherry blossoms in spring" fetchpriority="high">
+        <div class="shillong-hero-shade"></div>
+        <div class="shillong-hero-content">
+          <p class="eyebrow">A little trip, a night of music</p>
+          <h1 id="shillong-title" tabindex="-1">Our Shillong <span>Chapter</span></h1>
+          <p>Cherry-blossom skies, live music and a day that's ours to imagine.</p>
+          <span class="shillong-event-date">21 November 2026 <i aria-hidden="true">·</i> Shillong, Meghalaya</span>
+        </div>
+        <div class="shillong-concert-inset" aria-label="Concert atmosphere">
+          <img src="https://images.unsplash.com/photo-1501386761578-eac5c94b800a?auto=format&amp;fit=crop&amp;w=650&amp;q=85" alt="A crowd enjoying a live concert beneath stage lights" loading="lazy">
+          <span>THE NIGHT, IN OUR IMAGINATION</span>
+        </div>
+      </header>
+
+      <section class="shillong-countdown-card" aria-labelledby="shillong-countdown-title">
+        <div>
+          <p class="eyebrow">COUNTING DOWN TO THE SHOW</p>
+          <h2 id="shillong-countdown-title">A date on the horizon</h2>
+        </div>
+        <div class="countdown shillong-countdown" id="shillongCountdown" role="timer" aria-label="Time until 21 November 2026">
+          <div class="countdown-unit"><span id="shillongCountdownDays">000</span><small>Days</small></div>
+          <span class="countdown-divider" aria-hidden="true">:</span>
+          <div class="countdown-unit"><span id="shillongCountdownHours">00</span><small>Hours</small></div>
+          <span class="countdown-divider" aria-hidden="true">:</span>
+          <div class="countdown-unit"><span id="shillongCountdownMinutes">00</span><small>Minutes</small></div>
+          <span class="countdown-divider" aria-hidden="true">:</span>
+          <div class="countdown-unit"><span id="shillongCountdownSeconds">00</span><small>Seconds</small></div>
+        </div>
+      </section>
+
+      <section class="shillong-panel playlist-panel" aria-labelledby="playlist-title">
+        <div class="shillong-section-heading">
+          <p class="eyebrow">A SOFT SOUNDTRACK</p>
+          <h2 id="playlist-title">A little Khalid for the road</h2>
+          <p>Pick the songs you'd want somewhere in the day's soundtrack.</p>
+        </div>
+        <div class="shillong-song-list" aria-label="Choose favourite Khalid songs">
+          <button type="button" class="shillong-select-card song-choice" data-shillong-song="Location" aria-pressed="false"><span class="song-index">01</span><span class="song-copy"><strong>Location</strong><small>Khalid</small></span><span class="song-mark" aria-hidden="true">＋</span></button>
+          <button type="button" class="shillong-select-card song-choice" data-shillong-song="Better" aria-pressed="false"><span class="song-index">02</span><span class="song-copy"><strong>Better</strong><small>Khalid</small></span><span class="song-mark" aria-hidden="true">＋</span></button>
+          <button type="button" class="shillong-select-card song-choice" data-shillong-song="Talk" aria-pressed="false"><span class="song-index">03</span><span class="song-copy"><strong>Talk</strong><small>Khalid</small></span><span class="song-mark" aria-hidden="true">＋</span></button>
+          <button type="button" class="shillong-select-card song-choice" data-shillong-song="Young Dumb &amp; Broke" aria-pressed="false"><span class="song-index">04</span><span class="song-copy"><strong>Young Dumb &amp; Broke</strong><small>Khalid</small></span><span class="song-mark" aria-hidden="true">＋</span></button>
+        </div>
+      </section>
+
+      <section class="shillong-panel day-plan-panel" aria-labelledby="day-plan-title">
+        <div class="shillong-section-heading">
+          <p class="eyebrow">NO FIXED ITINERARY</p>
+          <h2 id="day-plan-title">Plan our Shillong day</h2>
+          <p>Choose the little moments you'd like to make room for.</p>
+        </div>
+        <div class="shillong-activity-grid">
+          <button type="button" class="activity-choice" data-shillong-activity="Sightseeing" aria-pressed="false"><span class="activity-icon" aria-hidden="true">⌁</span><span><strong>See the sights</strong><small>Take the scenic route around town.</small></span><span class="activity-check" aria-hidden="true">✓</span></button>
+          <button type="button" class="activity-choice" data-shillong-activity="Visit a café" aria-pressed="false"><span class="activity-icon" aria-hidden="true">⌂</span><span><strong>Find a café</strong><small>Pause for coffee and conversation.</small></span><span class="activity-check" aria-hidden="true">✓</span></button>
+          <button type="button" class="activity-choice" data-shillong-activity="Take pictures" aria-pressed="false"><span class="activity-icon" aria-hidden="true">▧</span><span><strong>Take pictures</strong><small>Keep a few frames from the day.</small></span><span class="activity-check" aria-hidden="true">✓</span></button>
+          <button type="button" class="activity-choice" data-shillong-activity="Nice dinner" aria-pressed="false"><span class="activity-icon" aria-hidden="true">✧</span><span><strong>Have a nice dinner</strong><small>End the day somewhere cosy.</small></span><span class="activity-check" aria-hidden="true">✓</span></button>
+        </div>
+      </section>
+
+      <section class="shillong-panel photo-journal-panel" aria-labelledby="photo-journal-title">
+        <div class="shillong-section-heading">
+          <p class="eyebrow">PAGES TO FILL LATER</p>
+          <h2 id="photo-journal-title">A photo journal, waiting for us</h2>
+          <p>These are empty frames for your real trip pictures—swap in your photos whenever you're ready.</p>
+        </div>
+        <div class="photo-journal-grid">
+          <figure class="journal-frame"><div class="journal-placeholder" aria-hidden="true"><span>01</span><i>＋</i></div><figcaption>The first view</figcaption></figure>
+          <figure class="journal-frame"><div class="journal-placeholder" aria-hidden="true"><span>02</span><i>＋</i></div><figcaption>A café pause</figcaption></figure>
+          <figure class="journal-frame"><div class="journal-placeholder" aria-hidden="true"><span>03</span><i>＋</i></div><figcaption>Under the lights</figcaption></figure>
+        </div>
+      </section>
+
+      <p class="shillong-note">One concert, one little trip, and hopefully a few memories worth keeping.</p>
+      <p class="shillong-save-status" id="shillongSaveStatus" aria-live="polite">Your ideas are saved on this device.</p>
+      <button class="primary-button shillong-continue" id="continueToBirthday" type="button">Continue <span aria-hidden="true">→</span></button>
+    </section>
+
+    <section class="screen birthday-screen" id="birthday" aria-labelledby="birthday-title" hidden>
+      <header class="birthday-heading">
+        <div class="birthday-emblem" aria-hidden="true"><span>✿</span><i>✧</i></div>
+        <p class="eyebrow">A little birthday investigation</p>
+        <h1 id="birthday-title" tabindex="-1">I have a very important <span>investigation to conduct...</span></h1>
+        <p class="birthday-intro">17 January is approaching, and I need to gather some information.</p>
+      </header>
+
+      <section class="countdown-card" aria-labelledby="countdown-title">
+        <div class="countdown-copy">
+          <p class="eyebrow">17 JANUARY 2027</p>
+          <h2 id="countdown-title">A date worth remembering</h2>
+          <p>Someone deserves to be celebrated.</p>
+        </div>
+        <div class="countdown" id="birthdayCountdown" role="timer" aria-label="Time until 17 January 2027">
+          <div class="countdown-unit"><span id="countdownDays">000</span><small>Days</small></div>
+          <span class="countdown-divider" aria-hidden="true">:</span>
+          <div class="countdown-unit"><span id="countdownHours">00</span><small>Hours</small></div>
+          <span class="countdown-divider" aria-hidden="true">:</span>
+          <div class="countdown-unit"><span id="countdownMinutes">00</span><small>Minutes</small></div>
+          <span class="countdown-divider" aria-hidden="true">:</span>
+          <div class="countdown-unit"><span id="countdownSeconds">00</span><small>Seconds</small></div>
+        </div>
+      </section>
+
+      <div class="birthday-question-card">
+        <p class="eyebrow">Help me get the important details right</p>
+        <h2 class="birthday-question">If someone wanted to make your birthday special, what would make you happiest?</h2>
+        <p class="selection-hint">Pick as many as you like.</p>
+
+        <div class="birthday-choice-grid" id="birthdayGiftChoices" aria-label="Birthday gift preferences">
+          <button class="birthday-choice" type="button" data-gift="flowers" aria-pressed="false"><span aria-hidden="true">✿</span> Flowers</button>
+          <button class="birthday-choice" type="button" data-gift="jewellery" aria-pressed="false"><span aria-hidden="true">◇</span> Diamond jewellery</button>
+          <button class="birthday-choice" type="button" data-gift="experience" aria-pressed="false"><span aria-hidden="true">✧</span> A birthday experience</button>
+          <button class="birthday-choice" type="button" data-gift="surprise" aria-pressed="false"><span aria-hidden="true">▧</span> A thoughtful surprise</button>
+          <button class="birthday-choice choice-everything" type="button" data-gift="everything" aria-pressed="false"><span aria-hidden="true">♡</span> A little bit of everything</button>
+        </div>
+
+        <div class="birthday-followups">
+          <fieldset class="followup-group birthday-gallery-section" id="flowerFollowup" hidden>
+            <legend>Let's talk flowers. What catches your eye?</legend>
+            <p class="gallery-intro">Choose any blooms you love. This is inspiration, not a shopping list.</p>
+            <div class="birthday-gallery flower-gallery" id="flowerGallery">
+              <button class="gallery-card" type="button" data-gallery-group="flowers" data-gallery-choice="Red roses" aria-pressed="false">
+                <span class="gallery-photo" style="--photo-fallback:#a94e54"><img src="https://images.unsplash.com/photo-1518895949257-7621c3c786d7?auto=format&amp;fit=crop&amp;w=700&amp;q=85" alt="Velvety red roses" loading="lazy"><span class="gallery-check" aria-hidden="true">✓</span></span>
+                <span class="gallery-card-copy"><span class="gallery-card-title">Red roses</span><span class="gallery-card-description">A timeless gesture, rich in colour.</span></span>
+              </button>
+              <button class="gallery-card" type="button" data-gallery-group="flowers" data-gallery-choice="Pink roses" aria-pressed="false">
+                <span class="gallery-photo" style="--photo-fallback:#d99bac"><img src="https://images.unsplash.com/photo-1494972308805-463bc619d34e?auto=format&amp;fit=crop&amp;w=700&amp;q=85" alt="Soft pink roses" loading="lazy"><span class="gallery-check" aria-hidden="true">✓</span></span>
+                <span class="gallery-card-copy"><span class="gallery-card-title">Pink roses</span><span class="gallery-card-description">Soft, romantic and quietly lovely.</span></span>
+              </button>
+              <button class="gallery-card" type="button" data-gallery-group="flowers" data-gallery-choice="White roses" aria-pressed="false">
+                <span class="gallery-photo" style="--photo-fallback:#d9d2c8"><img src="https://images.unsplash.com/photo-1525310072745-f49212b5ac6d?auto=format&amp;fit=crop&amp;w=700&amp;q=85" alt="Creamy white roses" loading="lazy"><span class="gallery-check" aria-hidden="true">✓</span></span>
+                <span class="gallery-card-copy"><span class="gallery-card-title">White roses</span><span class="gallery-card-description">Elegant, delicate and beautifully simple.</span></span>
+              </button>
+              <button class="gallery-card" type="button" data-gallery-group="flowers" data-gallery-choice="Tulips" aria-pressed="false">
+                <span class="gallery-photo" style="--photo-fallback:#d88b78"><img src="https://images.unsplash.com/photo-1520763185298-1b434c919102?auto=format&amp;fit=crop&amp;w=700&amp;q=85" alt="A bright bunch of tulips" loading="lazy"><span class="gallery-check" aria-hidden="true">✓</span></span>
+                <span class="gallery-card-copy"><span class="gallery-card-title">Tulips</span><span class="gallery-card-description">Fresh, graceful colour with a modern feel.</span></span>
+              </button>
+              <button class="gallery-card" type="button" data-gallery-group="flowers" data-gallery-choice="Lilies" aria-pressed="false">
+                <span class="gallery-photo" style="--photo-fallback:#e6d9ce"><img src="https://images.unsplash.com/photo-1561181286-d3fee7d55364?auto=format&amp;fit=crop&amp;w=700&amp;q=85" alt="Elegant pale lilies" loading="lazy"><span class="gallery-check" aria-hidden="true">✓</span></span>
+                <span class="gallery-card-copy"><span class="gallery-card-title">Lilies</span><span class="gallery-card-description">Sculptural blooms with a graceful presence.</span></span>
+              </button>
+              <button class="gallery-card" type="button" data-gallery-group="flowers" data-gallery-choice="Sunflowers" aria-pressed="false">
+                <span class="gallery-photo" style="--photo-fallback:#d9a333"><img src="https://images.unsplash.com/photo-1470252649378-9c29740c9fa8?auto=format&amp;fit=crop&amp;w=700&amp;q=85" alt="Golden sunflowers in warm light" loading="lazy"><span class="gallery-check" aria-hidden="true">✓</span></span>
+                <span class="gallery-card-copy"><span class="gallery-card-title">Sunflowers</span><span class="gallery-card-description">A little sunshine, wherever the day goes.</span></span>
+              </button>
+              <button class="gallery-card" type="button" data-gallery-group="flowers" data-gallery-choice="Peonies" aria-pressed="false">
+                <span class="gallery-photo" style="--photo-fallback:#d99cae"><img src="https://images.unsplash.com/photo-1563241527-3004b7be0ffd?auto=format&amp;fit=crop&amp;w=700&amp;q=85" alt="Full, blush-toned peonies" loading="lazy"><span class="gallery-check" aria-hidden="true">✓</span></span>
+                <span class="gallery-card-copy"><span class="gallery-card-title">Peonies</span><span class="gallery-card-description">Lush petals with a soft, celebratory mood.</span></span>
+              </button>
+              <button class="gallery-card" type="button" data-gallery-group="flowers" data-gallery-choice="Orchids" aria-pressed="false">
+                <span class="gallery-photo" style="--photo-fallback:#bba2c3"><img src="https://images.unsplash.com/photo-1508610048659-a06b669e3321?auto=format&amp;fit=crop&amp;w=700&amp;q=85" alt="Delicate purple orchids" loading="lazy"><span class="gallery-check" aria-hidden="true">✓</span></span>
+                <span class="gallery-card-copy"><span class="gallery-card-title">Orchids</span><span class="gallery-card-description">Refined, distinctive and a little unexpected.</span></span>
+              </button>
+              <button class="gallery-card" type="button" data-gallery-group="flowers" data-gallery-choice="Baby's breath" aria-pressed="false">
+                <span class="gallery-photo" style="--photo-fallback:#ddd5c5"><img src="https://images.unsplash.com/photo-1455659817273-f96807779a8a?auto=format&amp;fit=crop&amp;w=700&amp;q=85" alt="Airy white baby's breath flowers" loading="lazy"><span class="gallery-check" aria-hidden="true">✓</span></span>
+                <span class="gallery-card-copy"><span class="gallery-card-title">Baby's breath</span><span class="gallery-card-description">Tiny, airy blooms with a romantic softness.</span></span>
+              </button>
+              <button class="gallery-card" type="button" data-gallery-group="flowers" data-gallery-choice="Mixed bouquets" aria-pressed="false">
+                <span class="gallery-photo" style="--photo-fallback:#c88586"><img src="https://images.unsplash.com/photo-1490750967868-88aa4486c946?auto=format&amp;fit=crop&amp;w=700&amp;q=85" alt="A colourful mixed flower bouquet" loading="lazy"><span class="gallery-check" aria-hidden="true">✓</span></span>
+                <span class="gallery-card-copy"><span class="gallery-card-title">Mixed bouquets</span><span class="gallery-card-description">A thoughtful blend of favourite colours and blooms.</span></span>
+              </button>
+            </div>
+            <div class="rose-variety-panel" id="roseVarieties" hidden>
+              <p class="followup-question">Any rose varieties you especially like?</p>
+              <div class="followup-options">
+                <button type="button" data-gallery-group="roseVarieties" data-gallery-choice="Classic long-stem" aria-pressed="false">Classic long-stem</button>
+                <button type="button" data-gallery-group="roseVarieties" data-gallery-choice="Garden roses" aria-pressed="false">Garden roses</button>
+                <button type="button" data-gallery-group="roseVarieties" data-gallery-choice="Spray roses" aria-pressed="false">Spray roses</button>
+              </div>
+            </div>
+          </fieldset>
+
+          <fieldset class="followup-group birthday-gallery-section" id="jewelleryFollowup" hidden>
+            <legend>Now we're talking. What's your kind of sparkle?</legend>
+            <p class="gallery-intro">Pick any styles you like. A preference is just a helpful hint.</p>
+            <div class="birthday-gallery jewellery-gallery" id="jewelleryGallery">
+              <button class="gallery-card" type="button" data-gallery-group="jewellery" data-gallery-choice="Diamond necklace" aria-pressed="false">
+                <span class="gallery-photo" style="--photo-fallback:#dac8a4"><img src="https://images.unsplash.com/photo-1599643478518-a784e5dc4c8f?auto=format&amp;fit=crop&amp;w=700&amp;q=85" alt="A delicate diamond necklace" loading="lazy"><span class="gallery-check" aria-hidden="true">✓</span></span>
+                <span class="gallery-card-copy"><span class="gallery-card-title">Diamond necklace</span><span class="gallery-card-description">A fine chain with a subtle, light-catching detail.</span></span>
+              </button>
+              <button class="gallery-card" type="button" data-gallery-group="jewellery" data-gallery-choice="Diamond earrings" aria-pressed="false">
+                <span class="gallery-photo" style="--photo-fallback:#d5c7bd"><img src="https://images.unsplash.com/photo-1611652022419-a9419f74343d?auto=format&amp;fit=crop&amp;w=700&amp;q=85" alt="Elegant sparkling diamond earrings" loading="lazy"><span class="gallery-check" aria-hidden="true">✓</span></span>
+                <span class="gallery-card-copy"><span class="gallery-card-title">Diamond earrings</span><span class="gallery-card-description">A little shimmer, made to catch the light.</span></span>
+              </button>
+              <button class="gallery-card" type="button" data-gallery-group="jewellery" data-gallery-choice="Diamond bracelet" aria-pressed="false">
+                <span class="gallery-photo" style="--photo-fallback:#cdbb9c"><img src="https://images.unsplash.com/photo-1617038220319-276d3cfab638?auto=format&amp;fit=crop&amp;w=700&amp;q=85" alt="A refined diamond bracelet" loading="lazy"><span class="gallery-check" aria-hidden="true">✓</span></span>
+                <span class="gallery-card-copy"><span class="gallery-card-title">Diamond bracelet</span><span class="gallery-card-description">A graceful finishing touch for everyday or occasion.</span></span>
+              </button>
+              <button class="gallery-card" type="button" data-gallery-group="jewellery" data-gallery-choice="Diamond ring" aria-pressed="false">
+                <span class="gallery-photo" style="--photo-fallback:#d8cab4"><img src="https://images.unsplash.com/photo-1605100804763-247f67b3557e?auto=format&amp;fit=crop&amp;w=700&amp;q=85" alt="A diamond ring in warm light" loading="lazy"><span class="gallery-check" aria-hidden="true">✓</span></span>
+                <span class="gallery-card-copy"><span class="gallery-card-title">Diamond ring</span><span class="gallery-card-description">A bright, timeless detail with a little sparkle.</span></span>
+              </button>
+            </div>
+            <p class="followup-question">Which metal feels most like you?</p>
+            <div class="followup-options">
+              <button type="button" data-answer-group="metal" data-answer="Gold" aria-pressed="false">Gold</button>
+              <button type="button" data-answer-group="metal" data-answer="White gold" aria-pressed="false">White gold</button>
+              <button type="button" data-answer-group="metal" data-answer="Silver" aria-pressed="false">Silver</button>
+              <button type="button" data-answer-group="metal" data-answer="No preference" aria-pressed="false">No preference</button>
+            </div>
+            <p class="followup-question">More your style...</p>
+            <div class="followup-options">
+              <button type="button" data-answer-group="jewelleryStyle" data-answer="Minimalist and delicate" aria-pressed="false">Minimalist &amp; delicate</button>
+              <button type="button" data-answer-group="jewelleryStyle" data-answer="Statement pieces" aria-pressed="false">Statement pieces</button>
+            </div>
+          </fieldset>
+
+          <fieldset class="followup-group" id="experienceFollowup" hidden>
+            <legend>What kind of birthday experience sounds best?</legend>
+            <div class="followup-options">
+              <button type="button" data-answer-group="experience" data-answer="A romantic dinner" aria-pressed="false">A romantic dinner</button>
+              <button type="button" data-answer-group="experience" data-answer="A weekend getaway" aria-pressed="false">A weekend getaway</button>
+              <button type="button" data-answer-group="experience" data-answer="An adventure" aria-pressed="false">An adventure</button>
+              <button type="button" data-answer-group="experience" data-answer="A relaxing spa day" aria-pressed="false">A relaxing spa day</button>
+            </div>
+          </fieldset>
+
+          <div class="followup-group surprise-followup" id="surpriseFollowup" hidden>
+            <label for="surpriseNote">What thoughtful surprise would you love? <span>(optional)</span></label>
+            <textarea id="surpriseNote" rows="2" maxlength="240" placeholder="A little clue is all I need..."></textarea>
+          </div>
+        </div>
+
+        <p class="birthday-save-note" id="birthdaySaveNote" aria-live="polite">Your answers are saved privately on this device.</p>
+        <button class="primary-button" id="continueToGame" type="button">Continue <span aria-hidden="true">→</span></button>
+        <button class="text-button skip-birthday-button" id="skipBirthdayQuestions" type="button">Skip these questions</button>
+      </div>
+    </section>
+
+    <section class="screen quiz-screen" id="miniGame" aria-labelledby="mini-game-title" hidden>
+      <div class="question-card quiz-card">
+        <p class="eyebrow">A little getting-to-know-you game</p>
+        <h1 id="mini-game-title" tabindex="-1">One last thing... <span>let's see how well you know yourself.</span></h1>
+
+        <fieldset class="quiz-question" data-quiz="idealDate">
+          <legend><span>01</span> What's your ideal date?</legend>
+          <div class="quiz-options">
+            <button type="button" data-answer="Dinner somewhere beautiful" aria-pressed="false">Dinner somewhere beautiful</button>
+            <button type="button" data-answer="An adventure" aria-pressed="false">An adventure</button>
+            <button type="button" data-answer="A quiet evening together" aria-pressed="false">A quiet evening together</button>
+            <button type="button" data-answer="Surprise me" aria-pressed="false">Surprise me</button>
+          </div>
+        </fieldset>
+
+        <fieldset class="quiz-question" data-quiz="happiest">
+          <legend><span>02</span> What makes you happiest?</legend>
+          <div class="quiz-options">
+            <button type="button" data-answer="Quality time" aria-pressed="false">Quality time</button>
+            <button type="button" data-answer="Thoughtful gifts" aria-pressed="false">Thoughtful gifts</button>
+            <button type="button" data-answer="Sweet words" aria-pressed="false">Sweet words</button>
+            <button type="button" data-answer="Little acts of kindness" aria-pressed="false">Little acts of kindness</button>
+          </div>
+        </fieldset>
+
+        <div class="quiz-question quiz-text-question">
+          <label for="dayImprover"><span>03</span> What's one thing that can instantly improve your day?</label>
+          <textarea id="dayImprover" rows="2" maxlength="200" placeholder="Anything at all..."></textarea>
+          <button class="text-button quiz-skip" id="skipDayImprover" type="button">Skip this one</button>
+        </div>
+
+        <div class="quiz-complete" id="quizComplete" aria-live="polite" hidden>
+          <p>Interesting. I'm learning a few things about you.</p>
+          <button class="primary-button" id="continueToEnvelope" type="button">One last little thing <span aria-hidden="true">→</span></button>
+        </div>
+        <p class="birthday-save-note" id="quizSaveNote" aria-live="polite">Your answers are saved privately on this device.</p>
+      </div>
+    </section>
+
+    <section class="screen envelope-screen" id="envelope" aria-labelledby="envelope-title" hidden>
+      <div class="question-card envelope-card">
+        <p class="eyebrow">A small note, just for you</p>
+        <h1 id="envelope-title" tabindex="-1">There's something I wanted to <span>tell you...</span></h1>
+        <button class="envelope-button" id="openEnvelope" type="button" aria-expanded="false" aria-controls="envelopeLetter">
+          <span class="envelope-illustration" aria-hidden="true">
+            <span class="envelope-paper"></span>
+            <span class="envelope-body"></span>
+            <span class="envelope-flap"></span>
+            <span class="envelope-seal">✦</span>
+          </span>
+          <span class="envelope-prompt">Open your note</span>
+        </button>
+        <div class="envelope-letter" id="envelopeLetter" aria-live="polite" hidden>
+          <p id="envelopeMessage"></p>
+        </div>
+        <button class="primary-button" id="continueToFinal" type="button" hidden>Continue <span aria-hidden="true">→</span></button>
+        <p class="footer-note">SEALED WITH A LITTLE THOUGHT <span aria-hidden="true">♥</span></p>
+      </div>
+    </section>
+
+    <section class="screen final-screen" id="final" aria-labelledby="final-title" hidden>
+      <div class="question-card final-card">
+        <p class="eyebrow">Whatever the answer, I'm glad I asked</p>
+        <h1 id="final-title" tabindex="-1">Whatever happens, <span>I'm glad I got to ask.</span></h1>
+        <p class="final-message">I hope we get to make some beautiful memories together.</p>
+        <section class="birthday-summary" id="birthdaySummary" aria-labelledby="birthdaySummaryTitle">
+          <p class="eyebrow">A few birthday notes</p>
+          <h2 id="birthdaySummaryTitle">Your little wish list</h2>
+          <p id="birthdaySummaryText"></p>
+          <button class="text-button" id="changeBirthdayPreferences" type="button">Change birthday preferences</button>
+        </section>
+        <section class="shillong-summary" id="shillongSummary" aria-labelledby="shillongSummaryTitle">
+          <p class="eyebrow">OUR SHILLONG CHAPTER</p>
+          <h2 id="shillongSummaryTitle">A few daydreams for the day</h2>
+          <p id="shillongSummaryText"></p>
+          <button class="text-button" id="editShillongSelections" type="button">Edit Shillong ideas</button>
+        </section>
+        <div class="final-celebration" aria-hidden="true"><span>✦</span><span>♥</span><span>✦</span></div>
+        <div class="letter-reveal" id="letterReveal" hidden>
+          <p id="loveLetter" tabindex="-1"></p>
+          <span class="letter-signoff">With a smile <span aria-hidden="true">♥</span></span>
+        </div>
+        <button class="primary-button surprise-button" id="revealLetter" type="button">A little personal note <span aria-hidden="true">✉</span></button>
+        <div class="final-actions" id="finalActions" hidden>
+          <a class="secondary-button" id="whatsappLink" href="#" target="_blank" rel="noopener noreferrer" hidden>Share my answers on WhatsApp <span aria-hidden="true">↗</span></a>
+          <p class="whatsapp-note" id="whatsappNote" hidden>WhatsApp sharing is unavailable right now.</p>
+          <button class="text-button" id="restartButton" type="button">Start our adventure again</button>
+        </div>
+        <p class="footer-note">THANK YOU FOR SHARING THIS LITTLE MOMENT <span aria-hidden="true">♥</span></p>
+      </div>
+    </section>
+
+    <p class="site-signature">A LITTLE SOMETHING MADE WITH LOVE <span aria-hidden="true">♥</span></p>
+    <p class="sr-only" id="musicStatus" aria-live="polite"></p>
+  </main>
+
+  <script src="Elsie.js"></script>
+</body>
+</html>
